@@ -44,8 +44,8 @@
           <p class="eyebrow">Maquillaje y cuidado para bodas</p>
           <h1>Calma, piel luminosa y un acompañamiento real.</h1>
           <div class="hero-actions">
-            <a class="button" href="#waitlist">Lista de espera &amp; apertura</a>
-            <span class="hero-note">Agenda 2027 abierta</span>
+            <a class="button" href="#waitlist" data-modal-trigger="calendar">Últimas fechas 2026</a>
+            <span class="hero-note">Agenda 2027 abierta <strong>SOLO HOY</strong></span>
           </div>
         </div>
       </section>
@@ -199,9 +199,22 @@
       </div>
     </footer>
 
+    <div class="modal" id="calendar-modal" aria-hidden="true" data-modal="calendar">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="calendar-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
+          &times;
+        </button>
+        <p class="modal-title" id="calendar-title">Calendario 2026</p>
+        <img
+          src="assets/img/Black Simple Year 2026 Annual Calendar.png"
+          alt="Calendario anual 2026"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
-
-
-
