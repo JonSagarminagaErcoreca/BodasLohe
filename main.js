@@ -19,18 +19,20 @@ if (prefersReduced) {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-const calendarTrigger = document.querySelector('[data-modal-trigger="calendar"]');
+const calendarTriggers = document.querySelectorAll('[data-modal-trigger="calendar"]');
 const calendarModal = document.querySelector('[data-modal="calendar"]');
 
-if (calendarTrigger && calendarModal) {
+if (calendarTriggers.length && calendarModal) {
   const closeButtons = calendarModal.querySelectorAll('[data-modal-close]');
   const focusTarget =
     calendarModal.querySelector('[data-modal-focus]') || calendarModal.querySelector('.modal-dialog');
+  let lastTrigger = null;
 
-  const openModal = () => {
+  const openModal = (trigger) => {
     calendarModal.classList.add('is-open');
     calendarModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    lastTrigger = trigger || null;
     if (focusTarget) {
       focusTarget.focus();
     }
@@ -40,12 +42,16 @@ if (calendarTrigger && calendarModal) {
     calendarModal.classList.remove('is-open');
     calendarModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    calendarTrigger.focus();
+    if (lastTrigger) {
+      lastTrigger.focus();
+    }
   };
 
-  calendarTrigger.addEventListener('click', (event) => {
-    event.preventDefault();
-    openModal();
+  calendarTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openModal(trigger);
+    });
   });
 
   closeButtons.forEach((button) => {

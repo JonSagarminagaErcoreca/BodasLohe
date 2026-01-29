@@ -63,13 +63,13 @@
           <figure class="media">
             <picture>
               <source
-                srcset="assets/img/filosofia-900.jpg 900w, assets/img/filosofia-1600.jpg 1600w"
+                srcset="assets/img/IMG_5010.jpeg 900w, assets/img/IMG_5010.jpeg 1600w"
                 sizes="(max-width: 900px) 100vw, 50vw"
                 type="image/jpeg"
               />
               <img
-                src="assets/img/filosofia-900.jpg"
-                alt="Detalle de texturas y materiales del estudio"
+                src="assets/img/IMG_5010.jpeg"
+                alt="Maquillaje terminado con piel luminosa"
                 width="1600"
                 height="1067"
                 loading="lazy"
@@ -95,12 +95,12 @@
           <figure class="media">
             <picture>
               <source
-                srcset="assets/img/hero-1400.jpg 1400w, assets/img/hero-2400.jpg 2400w"
+                srcset="assets/img/p+i_alejandrobergado-125%20copia.JPG 1400w, assets/img/p+i_alejandrobergado-125%20copia.JPG 2400w"
                 sizes="(max-width: 900px) 100vw, 50vw"
                 type="image/jpeg"
               />
               <img
-                src="assets/img/hero-1400.jpg"
+                src="assets/img/p+i_alejandrobergado-125%20copia.JPG"
                 alt="Maquilladora dando los últimos retoques"
                 width="2400"
                 height="1596"
@@ -119,16 +119,19 @@
             <p class="subtle">Servicios pensados para piel real, ritmo real y cero prisas.</p>
           </div>
           <div class="services">
-            <div class="service-item">Maquillaje de novia &amp; invitadas</div>
+            <div class="service-item">Maquillaje de novias e invitadas en estudio</div>
             <div class="service-item">Tratamientos de piel y mirada</div>
-            <div class="service-item">Servicio en estudio o a domicilio</div>
-            <div class="service-item">Packs personalizados</div>
+            <div class="service-item">Maquillaje de novia e invitadas a domicilio</div>
+            <div class="service-item">Pack personalizados con <strong>DESCUENTO SOLO HOY</strong></div>
           </div>
           <div class="services-bottom">
-            <span class="badge">Agenda 2027 abierta.</span>
+            <div class="hero-actions">
+              <a class="button" href="#waitlist" data-modal-trigger="calendar">Últimas fechas 2026</a>
+              <span class="hero-note">Agenda 2027 abierta <strong>SOLO HOY</strong></span>
+            </div>
           </div>
           <figure class="media media-wide">
-            <img src="assets/servicios.jpg" alt="Maquillaje terminado con piel luminosa" loading="lazy" />
+            <img src="assets/img/filosofia-1600.jpg" alt="Detalle de texturas y materiales del estudio" loading="lazy" />
           </figure>
         </div>
       </section>
@@ -165,7 +168,12 @@
                 reserva.
               </p>
             </div>
-            <form class="waitlist-form">
+            <form
+              class="waitlist-form"
+              action="https://formsubmit.co/loheestudio6@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_next" value="https://estudiolohe.com" />
               <label>
                 Nombre
                 <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
