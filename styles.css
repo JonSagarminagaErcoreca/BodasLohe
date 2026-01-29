@@ -235,11 +235,27 @@ h2 {
 }
 
 .service-item {
+  appearance: none;
+  font: inherit;
   padding: 16px 20px;
   border-radius: 20px;
   background: var(--white);
   border: 1px solid rgba(163, 147, 130, 0.25);
   font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(35, 35, 35, 0.08);
+}
+
+.service-item:focus-visible {
+  outline: 2px solid rgba(104, 93, 84, 0.4);
+  outline-offset: 2px;
 }
 
 .services-bottom {
@@ -394,6 +410,51 @@ input:focus {
   object-fit: contain;
   border-radius: 18px;
   background: var(--white);
+}
+
+.price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.price-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(163, 147, 130, 0.25);
+  font-size: 15px;
+  gap: 16px;
+}
+
+.price-name {
+  flex: 1;
+}
+
+.price-values {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.price-old {
+  color: rgba(35, 35, 35, 0.55);
+  text-decoration: line-through;
+}
+
+.price-new {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.price-final {
+  font-weight: 600;
+  color: var(--charcoal);
 }
 
 .modal-close {

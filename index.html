@@ -1,7 +1,8 @@
 ﻿<!doctype html>
 <html lang="es">
   <head>
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lohë Studio | Maquillaje y cuidado para bodas</title>
@@ -119,10 +120,18 @@
             <p class="subtle">Servicios pensados para piel real, ritmo real y cero prisas.</p>
           </div>
           <div class="services">
-            <div class="service-item">Maquillaje de novias e invitadas en estudio</div>
-            <div class="service-item">Tratamientos de piel y mirada</div>
-            <div class="service-item">Maquillaje de novia e invitadas a domicilio</div>
-            <div class="service-item">Pack personalizados con <strong>DESCUENTO SOLO HOY</strong></div>
+            <button class="service-item" type="button" data-modal-trigger="pricing-estudio" aria-haspopup="dialog">
+              Maquillaje de novias e invitadas en estudio
+            </button>
+            <button class="service-item" type="button" data-modal-trigger="pricing-tratamientos" aria-haspopup="dialog">
+              Tratamientos de piel y mirada
+            </button>
+            <button class="service-item" type="button" data-modal-trigger="pricing-domicilio" aria-haspopup="dialog">
+              Maquillaje de novia e invitadas a domicilio
+            </button>
+            <button class="service-item" type="button" data-modal-trigger="pricing-pack" aria-haspopup="dialog">
+              Pack personalizados con <strong>DESCUENTO SOLO HOY</strong>
+            </button>
           </div>
           <div class="services-bottom">
             <div class="hero-actions">
@@ -139,11 +148,11 @@
       <section class="section" id="equipo">
         <div class="container split" data-reveal>
           <figure class="media">
-            <img src="assets/img/AlbayNora.png" alt="Alba y Nora, equipo Lohë" loading="lazy" />
+            <img src="assets/img/AlbayNora.png" alt="Alba y Nohora, equipo Lohë" loading="lazy" />
           </figure>
           <div class="text-block">
             <p class="eyebrow">Equipo</p>
-            <h2>Nora &amp; Alba</h2>
+            <h2>Nohora  &amp; Alba</h2>
             <p>
               Dos trayectorias unidas por un mismo criterio estético. Más de 7 años de experiencia fusionando el maquillaje técnico con el cuidado
               de la piel. En Loh&euml;, tú eres la prioridad absoluta.
@@ -173,7 +182,6 @@
               action="https://formsubmit.co/loheestudio6@gmail.com"
               method="POST"
             >
-              <input type="hidden" name="_next" value="https://estudiolohe.com" />
               <label>
                 Nombre
                 <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
@@ -196,13 +204,8 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p class="footer-title">LOH&Euml; STUDIO</p>
-          <p>Calle [Nombre de la calle], Getxo.</p>
-          <p>hola@lohe.studio</p>
-        </div>
-        <div class="footer-actions">
-          <a class="footer-link" href="https://wa.me/">WhatsApp</a>
-          <span class="footer-note">Instagram pronto</span>
+          <p class="footer-title">LOH&Euml; ESTUDIO</p>
+          <a class="footer-link" href="tel:+34635943587">+34 635 94 35 87</a>
         </div>
       </div>
     </footer>
@@ -220,6 +223,183 @@
           loading="lazy"
           decoding="async"
         />
+      </div>
+    </div>
+
+    <div class="modal" id="pricing-estudio-modal" aria-hidden="true" data-modal="pricing-estudio">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-estudio-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
+          &times;
+        </button>
+        <p class="modal-title" id="pricing-estudio-title">Precios: estudio</p>
+        <ul class="price-list">
+          <li>
+            <span class="price-name">Maquillaje novia en estudio</span>
+            <span class="price-values">
+              <span class="price-final">250 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Maquillaje invitada en estudio</span>
+            <span class="price-values">
+              <span class="price-final">100 €</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal" id="pricing-tratamientos-modal" aria-hidden="true" data-modal="pricing-tratamientos">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-tratamientos-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
+          &times;
+        </button>
+        <p class="modal-title" id="pricing-tratamientos-title">Precios: tratamientos</p>
+        <ul class="price-list">
+          <li>
+            <span class="price-name">Lifting de pestañas</span>
+            <span class="price-values">
+              <span class="price-final">55 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Extension de pestañas naturales</span>
+            <span class="price-values">
+              <span class="price-final">70 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Diseño completo de cejas (depilación, laminado y tinte)</span>
+            <span class="price-values">
+              <span class="price-final">70 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Laminado (depilación + laminado)</span>
+            <span class="price-values">
+              <span class="price-final">60 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Tinte de cejas (depilación + tinte)</span>
+            <span class="price-values">
+              <span class="price-final">55 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Hidratación labial con ácido sin color (incluye 1 retoque)</span>
+            <span class="price-values">
+              <span class="price-final">210 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Hidratación labial con ácido y color (incluye 1 retoque)</span>
+            <span class="price-values">
+              <span class="price-final">225 €</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal" id="pricing-domicilio-modal" aria-hidden="true" data-modal="pricing-domicilio">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-domicilio-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
+          &times;
+        </button>
+        <p class="modal-title" id="pricing-domicilio-title">Precios: domicilio</p>
+        <ul class="price-list">
+          <li>
+            <span class="price-name">Maquillaje novia + 2 invitadas a domicilio</span>
+            <span class="price-values">
+              <span class="price-final">540 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Maquillaje 4 invitadas a domicilio</span>
+            <span class="price-values">
+              <span class="price-final">400 €</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal" id="pricing-pack-modal" aria-hidden="true" data-modal="pricing-pack">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-pack-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
+          &times;
+        </button>
+        <p class="modal-title" id="pricing-pack-title">Precios: packs</p>
+        <ul class="price-list">
+          <li>
+            <span class="price-name">Boda a domicilio + lifting</span>
+            <span class="price-values">
+              <span class="price-old">595 €</span>
+              <span class="price-new">540 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Boda a domicilio + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">660 €</span>
+              <span class="price-new">600 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Boda a domicilio + lifting + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">715 €</span>
+              <span class="price-new">620 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Novia en estudio + lifting</span>
+            <span class="price-values">
+              <span class="price-old">385 €</span>
+              <span class="price-new">350 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Novia en estudio + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">450 €</span>
+              <span class="price-new">400 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Novia en estudio + lifting + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">505 €</span>
+              <span class="price-new">450 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Invitadas en estudio + lifting</span>
+            <span class="price-values">
+              <span class="price-old">155 €</span>
+              <span class="price-new">140 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Invitadas en estudio + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">220 €</span>
+              <span class="price-new">200 €</span>
+            </span>
+          </li>
+          <li>
+            <span class="price-name">Invitadas en estudio + lifting + hydralips</span>
+            <span class="price-values">
+              <span class="price-old">275 €</span>
+              <span class="price-new">245 €</span>
+            </span>
+          </li>
+        </ul>
       </div>
     </div>
 

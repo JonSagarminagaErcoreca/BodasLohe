@@ -19,51 +19,67 @@ if (prefersReduced) {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-const calendarTriggers = document.querySelectorAll('[data-modal-trigger="calendar"]');
-const calendarModal = document.querySelector('[data-modal="calendar"]');
+const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+const modals = document.querySelectorAll('[data-modal]');
+const lastTriggerMap = new WeakMap();
 
-if (calendarTriggers.length && calendarModal) {
-  const closeButtons = calendarModal.querySelectorAll('[data-modal-close]');
-  const focusTarget =
-    calendarModal.querySelector('[data-modal-focus]') || calendarModal.querySelector('.modal-dialog');
-  let lastTrigger = null;
+const toggleBodyLock = () => {
+  const hasOpenModal = document.querySelector('.modal.is-open');
+  document.body.style.overflow = hasOpenModal ? 'hidden' : '';
+};
 
-  const openModal = (trigger) => {
-    calendarModal.classList.add('is-open');
-    calendarModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    lastTrigger = trigger || null;
-    if (focusTarget) {
-      focusTarget.focus();
-    }
-  };
+const openModal = (modal, trigger) => {
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  lastTriggerMap.set(modal, trigger || null);
+  toggleBodyLock();
 
-  const closeModal = () => {
-    calendarModal.classList.remove('is-open');
-    calendarModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (lastTrigger) {
-      lastTrigger.focus();
-    }
-  };
+  const focusTarget = modal.querySelector('[data-modal-focus]') || modal.querySelector('.modal-dialog');
+  if (focusTarget) {
+    focusTarget.focus();
+  }
+};
 
-  calendarTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
-      event.preventDefault();
-      openModal(trigger);
-    });
+const closeModal = (modal) => {
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  toggleBodyLock();
+
+  const lastTrigger = lastTriggerMap.get(modal);
+  if (lastTrigger) {
+    lastTrigger.focus();
+  }
+};
+
+modalTriggers.forEach((trigger) => {
+  const target = trigger.getAttribute('data-modal-trigger');
+  const modal = document.querySelector(`[data-modal="${target}"]`);
+  if (!modal) {
+    return;
+  }
+
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal(modal, trigger);
   });
+});
 
+modals.forEach((modal) => {
+  const closeButtons = modal.querySelectorAll('[data-modal-close]');
   closeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      closeModal();
+      closeModal(modal);
     });
   });
+});
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && calendarModal.classList.contains('is-open')) {
-      closeModal();
-    }
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') {
+    return;
+  }
+
+  document.querySelectorAll('.modal.is-open').forEach((modal) => {
+    closeModal(modal);
   });
-}
+});
