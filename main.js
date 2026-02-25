@@ -1,14 +1,13 @@
 const menuModel = [
-  { type: "link", id: "home", label: "HOME", href: "index.html" },
   {
     type: "group",
     id: "maquillaje",
     label: "MAQUILLAJE",
     children: [
-      { id: "maquillaje-novias", label: "Maquillaje para novias", href: "maquillaje-novias.html" },
-      { id: "maquillaje-moda-tv", label: "Maquillaje profesional para moda y TV", href: "maquillaje-moda-tv.html" },
-      { id: "maquillaje-eventos", label: "Maquillaje para eventos", href: "maquillaje-eventos.html" },
-      { id: "belly-painting", label: "Belly painting", href: "belly-painting.html" }
+      { id: "maquillaje-novias", label: "Maquillaje para novias", href: "/maquilladora/boda/" },
+      { id: "maquillaje-moda-tv", label: "Maquillaje profesional para moda y TV", href: "/maquilladora/moda/" },
+      { id: "maquillaje-eventos", label: "Maquillaje para eventos", href: "/maquilladora/eventos/" },
+      { id: "belly-painting", label: "Belly painting", href: "/maquilladora/belly-painting/" }
     ]
   },
   {
@@ -16,29 +15,29 @@ const menuModel = [
     id: "micropigmentacion",
     label: "MICROPIGMENTACION",
     children: [
-      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion-cejas.html" },
-      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion-ojos.html" },
-      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion-labios.html" },
+      { id: "micropigmentacion-cejas", label: "Cejas", href: "/micropigmentacion/#cejas" },
+      { id: "micropigmentacion-ojos", label: "Ojos", href: "/micropigmentacion/#ojos" },
+      { id: "micropigmentacion-labios", label: "Labios", href: "/micropigmentacion/#labios" },
       {
         id: "micropigmentacion-areolas-cicatrices",
         label: "Areolas y cicatrices",
-        href: "micropigmentacion-areolas-cicatrices.html"
+        href: "/micropigmentacion/#areolas"
       },
       {
         id: "micropigmentacion-paramedica-oncologica",
         label: "Paramedica y oncologica",
-        href: "micropigmentacion-paramedica-oncologica.html"
+        href: "/micropigmentacion/#oncologica"
       },
       {
         id: "micropigmentacion-eliminacion-tatuajes",
         label: "Eliminacion de tatuajes",
-        href: "micropigmentacion-eliminacion-tatuajes.html"
+        href: "/tatuaje/eliminacion-de-tatuajes/"
       }
     ]
   },
-  { type: "link", id: "cursos-formacion", label: "CURSOS Y FORMACION", href: "cursos-formacion.html" },
-  { type: "link", id: "sobre-lohe", label: "SOBRE LOHE", href: "sobre-lohe.html" },
-  { type: "link", id: "contacto", label: "CONTACTO", href: "contacto.html" }
+  { type: "link", id: "cursos-formacion", label: "CURSOS Y FORMACION", href: "/cursos/" },
+  { type: "link", id: "sobre-lohe", label: "SOBRE LOHE", href: "/lohe/" },
+  { type: "link", id: "contacto", label: "CONTACTO", href: "/contacto/" }
 ];
 
 const pageToGroup = {
@@ -89,12 +88,12 @@ const renderMenu = () =>
         .join("");
 
       return `
-        <li class="nav-item nav-item--group ${isGroupActive ? "is-open" : ""}" data-group="${item.id}">
+        <li class="nav-item nav-item--group" data-group="${item.id}">
           <button
             type="button"
             class="nav-link nav-link--button ${isGroupActive ? "is-active" : ""}"
             data-submenu-toggle
-            aria-expanded="${isGroupActive ? "true" : "false"}"
+            aria-expanded="false"
             aria-controls="${submenuId}"
           >
             ${item.label}
@@ -109,8 +108,8 @@ const renderMenu = () =>
 
 const headerMarkup = `
   <div class="container topbar">
-    <a class="brand" href="index.html" aria-label="LOHE Estudio">
-      <img src="assets/img/LoheAssets/LE_Logotipo_charcoal.svg" alt="LOHE Estudio" width="250" height="56" />
+    <a class="brand" href="/" aria-label="LOHE Estudio">
+      <img src="/assets/img/LoheAssets/LE_Logotipo_charcoal.svg" alt="LOHE Estudio" width="250" height="56" />
     </a>
     <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Abrir menu">
       <span class="nav-toggle-icon"></span>
@@ -119,7 +118,6 @@ const headerMarkup = `
       <ul class="nav-list">
         ${renderMenu()}
       </ul>
-      <a class="nav-cta" href="contacto.html">Reservar valoracion</a>
     </nav>
   </div>
 `;
@@ -128,7 +126,7 @@ const footerMarkup = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/img/LoheAssets/LE_Logotipo_milk.svg" alt="LOHE Estudio" width="250" height="56" />
+        <img src="/assets/img/LoheAssets/LE_Logotipo_milk.svg" alt="LOHE Estudio" width="250" height="56" />
         <p>
           Estudio premium en Getxo orientado al cuidado real: tecnica, calma y resultados naturales.
         </p>
@@ -136,9 +134,9 @@ const footerMarkup = `
       <div>
         <p class="footer-title">Servicios</p>
         <ul class="footer-links">
-          <li><a href="maquillaje-novias.html">Maquillaje</a></li>
-          <li><a href="micropigmentacion-cejas.html">Micropigmentacion</a></li>
-          <li><a href="cursos-formacion.html">Cursos y formacion</a></li>
+          <li><a href="/maquilladora/boda/">Maquillaje</a></li>
+          <li><a href="/micropigmentacion/">Micropigmentacion</a></li>
+          <li><a href="/cursos/">Cursos y formacion</a></li>
         </ul>
       </div>
       <div>
@@ -146,7 +144,7 @@ const footerMarkup = `
         <ul class="footer-links">
           <li><a href="tel:+34635943587">+34 635 94 35 87</a></li>
           <li><a href="mailto:info@loheestudio.com">info@loheestudio.com</a></li>
-          <li><a href="contacto.html">Pedir cita</a></li>
+          <li><a href="/contacto/">Pedir cita</a></li>
         </ul>
       </div>
     </div>
@@ -219,11 +217,58 @@ document.querySelectorAll("[data-submenu-toggle]").forEach((toggle) => {
     if (!parent) {
       return;
     }
+
+    if (!isMobile()) {
+      closeGroups({ except: parent });
+      parent.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      return;
+    }
+
     toggleGroup(parent);
   });
 });
 
-document.querySelectorAll(".nav-list a, .nav-cta").forEach((link) => {
+groupNodes.forEach((group) => {
+  group.addEventListener("mouseenter", () => {
+    if (isMobile()) {
+      return;
+    }
+
+    closeGroups({ except: group });
+    group.classList.add("is-open");
+    const trigger = group.querySelector("[data-submenu-toggle]");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+if (nav) {
+  nav.addEventListener("mouseleave", () => {
+    if (!isMobile()) {
+      closeGroups();
+    }
+  });
+
+  nav.addEventListener("mouseover", (event) => {
+    if (isMobile()) {
+      return;
+    }
+
+    const target = event.target;
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    const overGroup = target.closest(".nav-item--group");
+    if (!overGroup) {
+      closeGroups();
+    }
+  });
+}
+
+document.querySelectorAll(".nav-list a").forEach((link) => {
   link.addEventListener("click", () => {
     if (isMobile()) {
       closeMenu();
@@ -268,6 +313,302 @@ document.addEventListener("keydown", (event) => {
 document.querySelectorAll("[data-year]").forEach((yearNode) => {
   yearNode.textContent = String(new Date().getFullYear());
 });
+
+const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const shapeBlurNodes = [...document.querySelectorAll("[data-shape-blur]")];
+
+const toNumber = (value, fallback) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
+
+const initShapeBlur = (node) => {
+  const host = node.parentElement || node;
+  const canvas = document.createElement("canvas");
+  canvas.className = "shape-blur-canvas";
+  node.appendChild(canvas);
+
+  const context = canvas.getContext("2d");
+  if (!context) {
+    return;
+  }
+
+  const variation = toNumber(node.dataset.variation, 0);
+  const shapeSize = toNumber(node.dataset.shapeSize, 1);
+  const roundness = toNumber(node.dataset.roundness, 0.5);
+  const borderSize = toNumber(node.dataset.borderSize, 0.05);
+  const circleSize = toNumber(node.dataset.circleSize, 0.25);
+  const circleEdge = toNumber(node.dataset.circleEdge, 1);
+  const backgroundColor = node.dataset.bgColor || "#232323";
+  const pixelRatioProp = node.dataset.pixelRatio === "device" ? window.devicePixelRatio || 1 : toNumber(node.dataset.pixelRatio, 1);
+  const dpr = Math.min(Math.max(pixelRatioProp, 1), 2);
+
+  let width = 1;
+  let height = 1;
+  let rafId = null;
+  const pointer = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
+  const interaction = { hover: 0, hoverTarget: 0 };
+
+  const isotope = new Image();
+  isotope.decoding = "async";
+  isotope.src = "/assets/img/LoheAssets/LE_Isotipo_taupe.svg";
+
+  const shapes = [
+    { phase: 0.25 + variation * 0.4, scale: 1.8, alpha: 0.31, ampX: 0.085, ampY: 0.06 },
+    { phase: 2.2 + variation * 0.3, scale: 2.35, alpha: 0.19, ampX: 0.07, ampY: 0.08 },
+    { phase: 4.35 + variation * 0.5, scale: 1.5, alpha: 0.24, ampX: 0.09, ampY: 0.065 }
+  ];
+
+  const resize = () => {
+    const rect = node.getBoundingClientRect();
+    width = Math.max(1, Math.round(rect.width));
+    height = Math.max(1, Math.round(rect.height));
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+
+  const drawShapeLayer = (time, isStatic) => {
+    const mouseOffsetX = (pointer.x - 0.5) * width * 0.18;
+    const mouseOffsetY = (pointer.y - 0.5) * height * 0.16;
+    const centerX = width * 0.5 + mouseOffsetX;
+    const centerY = height * 0.52 + mouseOffsetY;
+    const hoverMix = isStatic ? 0 : interaction.hover;
+    const blurMax = Math.max(8, Math.min(34, Math.min(width, height) * (0.024 + circleSize * 0.07)));
+    const blurAmount = blurMax * hoverMix;
+    const driftScale = 0.58 + hoverMix * 1.08;
+    const pulseAmplitude = 0.02 + hoverMix * 0.08;
+
+    shapes.forEach((shape) => {
+      const pulse = isStatic ? 1 : 1 + Math.sin(time * 0.0002 + shape.phase) * pulseAmplitude;
+      const dynamicScale = shape.scale * shapeSize * pulse;
+      const drawWidth = isotope.width * dynamicScale;
+      const drawHeight = isotope.height * dynamicScale;
+
+      const driftX = isStatic
+        ? 0
+        : Math.sin(time * 0.00011 + shape.phase) * width * shape.ampX * circleEdge * driftScale;
+      const driftY = isStatic
+        ? 0
+        : Math.cos(time * 0.00013 + shape.phase) * height * shape.ampY * circleEdge * driftScale;
+      const rotation = isStatic ? 0 : Math.sin(time * 0.00009 + shape.phase) * (0.08 + roundness * 0.2 + hoverMix * 0.26);
+
+      if (blurAmount > 0.4) {
+        context.save();
+        context.translate(centerX + driftX, centerY + driftY);
+        context.rotate(rotation);
+        context.globalAlpha = shape.alpha * (0.22 + hoverMix * 0.78);
+        context.filter = `blur(${blurAmount}px)`;
+        context.drawImage(isotope, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+        context.restore();
+      }
+
+      context.save();
+      context.translate(centerX + driftX, centerY + driftY);
+      context.rotate(rotation);
+      context.globalAlpha = shape.alpha * (0.48 + (1 - hoverMix) * 0.32);
+      context.filter = "none";
+      context.drawImage(isotope, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+      context.restore();
+    });
+
+    context.filter = "none";
+    context.globalAlpha = 1;
+  };
+
+  const draw = (time = 0, isStatic = false) => {
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, width, height);
+
+    if (!isotope.complete || isotope.naturalWidth === 0) {
+      return;
+    }
+
+    const haloRadius = Math.max(width, height) * (0.55 + circleSize * 0.45);
+    const halo = context.createRadialGradient(width * 0.5, height * 0.5, 0, width * 0.5, height * 0.5, haloRadius);
+    halo.addColorStop(0, `rgba(251, 247, 244, ${0.02 + borderSize * 0.28})`);
+    halo.addColorStop(1, "rgba(251, 247, 244, 0)");
+    context.fillStyle = halo;
+    context.fillRect(0, 0, width, height);
+
+    drawShapeLayer(time, isStatic);
+  };
+
+  const animate = (time) => {
+    pointer.x += (pointer.targetX - pointer.x) * 0.08;
+    pointer.y += (pointer.targetY - pointer.y) * 0.08;
+    interaction.hover += (interaction.hoverTarget - interaction.hover) * 0.09;
+    draw(time, false);
+    rafId = window.requestAnimationFrame(animate);
+  };
+
+  const start = () => {
+    if (prefersReducedMotionQuery) {
+      draw(performance.now(), true);
+      return;
+    }
+
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(animate);
+    }
+  };
+
+  resize();
+  isotope.addEventListener("load", start);
+
+  const updatePointerTarget = (clientX, clientY) => {
+    const rect = host.getBoundingClientRect();
+    if (!rect.width || !rect.height) {
+      return;
+    }
+
+    const nextX = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+    const nextY = Math.min(1, Math.max(0, (clientY - rect.top) / rect.height));
+    pointer.targetX = nextX;
+    pointer.targetY = nextY;
+  };
+
+  host.addEventListener("pointermove", (event) => {
+    interaction.hoverTarget = 1;
+    updatePointerTarget(event.clientX, event.clientY);
+  });
+
+  host.addEventListener("pointerenter", (event) => {
+    interaction.hoverTarget = 1;
+    updatePointerTarget(event.clientX, event.clientY);
+  });
+
+  host.addEventListener("pointerleave", () => {
+    pointer.targetX = 0.5;
+    pointer.targetY = 0.5;
+    interaction.hoverTarget = 0;
+  });
+
+  if (isotope.complete && isotope.naturalWidth > 0) {
+    start();
+  } else {
+    draw(0, true);
+  }
+
+  window.addEventListener("resize", () => {
+    resize();
+    if (prefersReducedMotionQuery) {
+      draw(performance.now(), true);
+    }
+  });
+};
+
+shapeBlurNodes.forEach((node) => initShapeBlur(node));
+
+const scrambleNodes = [...document.querySelectorAll("[data-scramble-text]")];
+const shouldReduceMotion = prefersReducedMotionQuery;
+
+const initScrambleText = (node) => {
+  const text = (node.textContent || "").replace(/\s+/g, " ").trim();
+  if (!text) {
+    return;
+  }
+
+  const radius = Number(node.dataset.scrambleRadius || 100);
+  const durationMs = Number(node.dataset.scrambleDuration || 1.2) * 1000;
+  const speedMs = Math.max(24, Number(node.dataset.scrambleSpeed || 0.5) * 100);
+  const scrambleChars = (node.dataset.scrambleChars || ".:").split("");
+
+  node.textContent = "";
+  const words = text.split(" ");
+  const states = [];
+  const spans = [];
+
+  words.forEach((word, wordIndex) => {
+    const wordSpan = document.createElement("span");
+    wordSpan.className = "scramble-word";
+    [...word].forEach((char) => {
+      const span = document.createElement("span");
+      span.className = "scramble-char";
+      span.dataset.original = char;
+      span.textContent = char;
+      states.push({ until: 0, lastSwap: 0 });
+      spans.push(span);
+      wordSpan.appendChild(span);
+    });
+    node.appendChild(wordSpan);
+    if (wordIndex < words.length - 1) {
+      node.appendChild(document.createTextNode(" "));
+    }
+  });
+
+  const randomScrambleChar = () => scrambleChars[Math.floor(Math.random() * scrambleChars.length)] || ".";
+  let rafId = null;
+
+  const tick = (now) => {
+    let keepAnimating = false;
+
+    spans.forEach((span, index) => {
+      const state = states[index];
+      const original = span.dataset.original || "";
+      if (now < state.until) {
+        keepAnimating = true;
+        if (now - state.lastSwap >= speedMs) {
+          span.textContent = randomScrambleChar();
+          state.lastSwap = now;
+        }
+      } else if (span.textContent !== original) {
+        span.textContent = original;
+      }
+    });
+
+    if (keepAnimating) {
+      rafId = window.requestAnimationFrame(tick);
+    } else {
+      rafId = null;
+    }
+  };
+
+  const energizeFromPoint = (x, y) => {
+    const now = performance.now();
+    spans.forEach((span, index) => {
+      const rect = span.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const distance = Math.hypot(x - centerX, y - centerY);
+      if (distance > radius) {
+        return;
+      }
+
+      const power = 1 - distance / radius;
+      states[index].until = Math.max(states[index].until, now + durationMs * power);
+    });
+
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(tick);
+    }
+  };
+
+  node.addEventListener("pointermove", (event) => {
+    energizeFromPoint(event.clientX, event.clientY);
+  });
+
+  node.addEventListener("pointerenter", (event) => {
+    energizeFromPoint(event.clientX, event.clientY);
+  });
+
+  node.addEventListener(
+    "touchmove",
+    (event) => {
+      const touch = event.touches[0];
+      if (!touch) {
+        return;
+      }
+      energizeFromPoint(touch.clientX, touch.clientY);
+    },
+    { passive: true }
+  );
+};
+
+if (!shouldReduceMotion) {
+  scrambleNodes.forEach((node) => initScrambleText(node));
+}
 
 const revealItems = document.querySelectorAll("[data-reveal]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
