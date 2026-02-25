@@ -1,13 +1,13 @@
 const menuModel = [
   {
-    type: "group",
+      type: "group",
     id: "maquillaje",
     label: "MAQUILLAJE",
     children: [
-      { id: "maquillaje-novias", label: "Maquillaje para novias", href: "/maquilladora/boda/" },
-      { id: "maquillaje-moda-tv", label: "Maquillaje profesional para moda y TV", href: "/maquilladora/moda/" },
-      { id: "maquillaje-eventos", label: "Maquillaje para eventos", href: "/maquilladora/eventos/" },
-      { id: "belly-painting", label: "Belly painting", href: "/maquilladora/belly-painting/" }
+      { id: "maquillaje-novias", label: "Maquillaje para novias", href: "maquilladora/boda/" },
+      { id: "maquillaje-moda-tv", label: "Maquillaje profesional para moda y TV", href: "maquilladora/moda/" },
+      { id: "maquillaje-eventos", label: "Maquillaje para eventos", href: "maquilladora/eventos/" },
+      { id: "belly-painting", label: "Belly painting", href: "maquilladora/belly-painting/" }
     ]
   },
   {
@@ -15,29 +15,29 @@ const menuModel = [
     id: "micropigmentacion",
     label: "MICROPIGMENTACION",
     children: [
-      { id: "micropigmentacion-cejas", label: "Cejas", href: "/micropigmentacion/#cejas" },
-      { id: "micropigmentacion-ojos", label: "Ojos", href: "/micropigmentacion/#ojos" },
-      { id: "micropigmentacion-labios", label: "Labios", href: "/micropigmentacion/#labios" },
+      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion/#cejas" },
+      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion/#ojos" },
+      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion/#labios" },
       {
         id: "micropigmentacion-areolas-cicatrices",
         label: "Areolas y cicatrices",
-        href: "/micropigmentacion/#areolas"
+        href: "micropigmentacion/#areolas"
       },
       {
         id: "micropigmentacion-paramedica-oncologica",
         label: "Paramedica y oncologica",
-        href: "/micropigmentacion/#oncologica"
+        href: "micropigmentacion/#oncologica"
       },
       {
         id: "micropigmentacion-eliminacion-tatuajes",
         label: "Eliminacion de tatuajes",
-        href: "/tatuaje/eliminacion-de-tatuajes/"
+        href: "tatuaje/eliminacion-de-tatuajes/"
       }
     ]
   },
-  { type: "link", id: "cursos-formacion", label: "CURSOS Y FORMACION", href: "/cursos/" },
-  { type: "link", id: "sobre-lohe", label: "SOBRE LOHE", href: "/lohe/" },
-  { type: "link", id: "contacto", label: "CONTACTO", href: "/contacto/" }
+  { type: "link", id: "cursos-formacion", label: "CURSOS Y FORMACION", href: "cursos/" },
+  { type: "link", id: "sobre-lohe", label: "SOBRE LOHE", href: "lohe/" },
+  { type: "link", id: "contacto", label: "CONTACTO", href: "contacto/" }
 ];
 
 const pageToGroup = {
@@ -108,8 +108,8 @@ const renderMenu = () =>
 
 const headerMarkup = `
   <div class="container topbar">
-    <a class="brand" href="/" aria-label="LOHE Estudio">
-      <img src="/assets/img/LoheAssets/LE_Logotipo_charcoal.svg" alt="LOHE Estudio" width="250" height="56" />
+    <a class="brand" href="./" aria-label="LOHE Estudio">
+      <img src="assets/img/LoheAssets/LE_Logotipo_charcoal.svg" alt="LOHE Estudio" width="250" height="56" />
     </a>
     <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Abrir menu">
       <span class="nav-toggle-icon"></span>
@@ -126,7 +126,7 @@ const footerMarkup = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/assets/img/LoheAssets/LE_Logotipo_milk.svg" alt="LOHE Estudio" width="250" height="56" />
+        <img src="assets/img/LoheAssets/LE_Logotipo_milk.svg" alt="LOHE Estudio" width="250" height="56" />
         <p>
           Estudio premium en Getxo orientado al cuidado real: tecnica, calma y resultados naturales.
         </p>
@@ -134,9 +134,9 @@ const footerMarkup = `
       <div>
         <p class="footer-title">Servicios</p>
         <ul class="footer-links">
-          <li><a href="/maquilladora/boda/">Maquillaje</a></li>
-          <li><a href="/micropigmentacion/">Micropigmentacion</a></li>
-          <li><a href="/cursos/">Cursos y formacion</a></li>
+          <li><a href="maquilladora/boda/">Maquillaje</a></li>
+          <li><a href="micropigmentacion/">Micropigmentacion</a></li>
+          <li><a href="cursos/">Cursos y formacion</a></li>
         </ul>
       </div>
       <div>
@@ -144,7 +144,7 @@ const footerMarkup = `
         <ul class="footer-links">
           <li><a href="tel:+34635943587">+34 635 94 35 87</a></li>
           <li><a href="mailto:info@loheestudio.com">info@loheestudio.com</a></li>
-          <li><a href="/contacto/">Pedir cita</a></li>
+          <li><a href="contacto/">Pedir cita</a></li>
         </ul>
       </div>
     </div>
@@ -351,7 +351,7 @@ const initShapeBlur = (node) => {
 
   const isotope = new Image();
   isotope.decoding = "async";
-  isotope.src = "/assets/img/LoheAssets/LE_Isotipo_taupe.svg";
+  isotope.src = "assets/img/LoheAssets/LE_Isotipo_taupe.svg";
 
   const shapes = [
     { phase: 0.25 + variation * 0.4, scale: 1.8, alpha: 0.31, ampX: 0.085, ampY: 0.06 },
@@ -374,7 +374,7 @@ const initShapeBlur = (node) => {
     const centerX = width * 0.5 + mouseOffsetX;
     const centerY = height * 0.52 + mouseOffsetY;
     const hoverMix = isStatic ? 0 : interaction.hover;
-    const blurMax = Math.max(8, Math.min(34, Math.min(width, height) * (0.024 + circleSize * 0.07)));
+    const blurMax = Math.max(12, Math.min(54, Math.min(width, height) * (0.038 + circleSize * 0.11)));
     const blurAmount = blurMax * hoverMix;
     const driftScale = 0.58 + hoverMix * 1.08;
     const pulseAmplitude = 0.02 + hoverMix * 0.08;
@@ -397,7 +397,7 @@ const initShapeBlur = (node) => {
         context.save();
         context.translate(centerX + driftX, centerY + driftY);
         context.rotate(rotation);
-        context.globalAlpha = shape.alpha * (0.22 + hoverMix * 0.78);
+        context.globalAlpha = Math.min(0.92, shape.alpha * (0.26 + hoverMix * 2.05));
         context.filter = `blur(${blurAmount}px)`;
         context.drawImage(isotope, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
         context.restore();
@@ -406,7 +406,7 @@ const initShapeBlur = (node) => {
       context.save();
       context.translate(centerX + driftX, centerY + driftY);
       context.rotate(rotation);
-      context.globalAlpha = shape.alpha * (0.48 + (1 - hoverMix) * 0.32);
+      context.globalAlpha = Math.max(0.08, shape.alpha * (0.78 - hoverMix * 0.55));
       context.filter = "none";
       context.drawImage(isotope, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
       context.restore();

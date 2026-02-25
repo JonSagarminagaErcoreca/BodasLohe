@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Micropigmentacion paramedica y oncologica</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Micropigmentacion paramedica y oncologica</title>
     <meta
       name="description"
       content="Micropigmentacion paramedica y oncologica en LOHE con enfoque humano, tecnico y coordinado para acompanar procesos de recuperacion."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-paramedica-oncologica">
     <div class="ambient" aria-hidden="true"></div>
@@ -32,8 +48,8 @@
               seguridad, escucha y coordinacion profesional.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Solicitar entrevista</a>
-              <a class="button button--light" href="/micropigmentacion-areolas-cicatrices.html">Ver areolas y cicatrices</a>
+              <a class="button" href="contacto/">Solicitar entrevista</a>
+              <a class="button button--light" href="micropigmentacion-areolas-cicatrices.html">Ver areolas y cicatrices</a>
             </div>
           </div>
         </div>
@@ -84,7 +100,7 @@
       <section class="section section--soft">
         <div class="container">
           <div class="section-heading" data-reveal>
-            <span class="section-kicker">Acompañamiento</span>
+            <span class="section-kicker">AcompaÃ±amiento</span>
             <h2 class="section-title">Ruta de trabajo en tratamientos paramedicos</h2>
           </div>
           <ol class="timeline">
@@ -123,13 +139,16 @@
               <h2>Necesitas orientacion antes de decidir?</h2>
               <p>Podemos tener una primera conversacion para valorar opciones de forma tranquila.</p>
             </div>
-            <a class="button" href="/contacto/">Iniciar consulta</a>
+            <a class="button" href="contacto/">Iniciar consulta</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

@@ -1,12 +1,28 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Micropigmentacion de ojos</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Micropigmentacion de ojos</title>
     <meta
       name="description"
-      content="Micropigmentacion de ojos en LOHE: definicion de linea de pestaña y mirada con tecnica segura y acabados sutiles."
+      content="Micropigmentacion de ojos en LOHE: definicion de linea de pestaÃ±a y mirada con tecnica segura y acabados sutiles."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-ojos">
     <div class="ambient" aria-hidden="true"></div>
@@ -28,12 +44,12 @@
             <span class="eyebrow">Micropigmentacion</span>
             <h1 class="hero-title">Ojos</h1>
             <p class="hero-copy">
-              Definimos la mirada con lineas elegantes y discretas sobre la base de pestañas. El resultado aporta
+              Definimos la mirada con lineas elegantes y discretas sobre la base de pestaÃ±as. El resultado aporta
               profundidad sin efecto maquillaje permanente agresivo.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Pedir valoracion</a>
-              <a class="button button--light" href="/micropigmentacion-cejas.html">Ver cejas</a>
+              <a class="button" href="contacto/">Pedir valoracion</a>
+              <a class="button button--light" href="micropigmentacion-cejas.html">Ver cejas</a>
             </div>
           </div>
         </div>
@@ -48,10 +64,10 @@
               condicionen el look diario.
             </p>
             <p>
-              El diseño se orienta a realzar densidad visual en pestañas y mejorar la expresion con un acabado limpio.
+              El diseÃ±o se orienta a realzar densidad visual en pestaÃ±as y mejorar la expresion con un acabado limpio.
             </p>
             <div class="tag-row" style="margin-top: 1rem">
-              <span class="tag">Linea de pestañas</span>
+              <span class="tag">Linea de pestaÃ±as</span>
               <span class="tag">Acabado suave</span>
               <span class="tag">Resultado elegante</span>
             </div>
@@ -65,7 +81,7 @@
               </li>
               <li>
                 <span class="meta-label">Sesion</span>
-                <span class="meta-value">Diseño previo + implantacion + control</span>
+                <span class="meta-value">DiseÃ±o previo + implantacion + control</span>
               </li>
               <li>
                 <span class="meta-label">Cuidados</span>
@@ -95,7 +111,7 @@
             </li>
             <li data-reveal>
               <div>
-                <h3>Diseño de linea</h3>
+                <h3>DiseÃ±o de linea</h3>
                 <p>Se prueba grosor y recorrido para validar equilibrio antes de pigmentar.</p>
               </div>
             </li>
@@ -122,13 +138,16 @@
               <h2>Te interesa realzar la mirada de forma natural?</h2>
               <p>Escribenos y evaluamos si esta especialidad encaja con tu objetivo.</p>
             </div>
-            <a class="button" href="/contacto/">Consultar ahora</a>
+            <a class="button" href="contacto/">Consultar ahora</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

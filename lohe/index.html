@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Sobre LOHE</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Sobre LOHE</title>
     <meta
       name="description"
       content="Conoce la esencia de LOHE Estudio: calma, limpieza, profesionalidad y detalle premium en maquillaje, micropigmentacion y cuidado."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="sobre-lohe">
     <div class="ambient" aria-hidden="true"></div>
@@ -32,8 +48,8 @@
               fin, sino una consecuencia del cuidado.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Pedir cita</a>
-              <a class="button button--light" href="/">Volver a home</a>
+              <a class="button" href="contacto/">Pedir cita</a>
+              <a class="button button--light" href="">Volver a home</a>
             </div>
           </div>
         </div>
@@ -119,6 +135,9 @@
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

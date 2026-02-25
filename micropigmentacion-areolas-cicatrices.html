@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Areolas y cicatrices</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Areolas y cicatrices</title>
     <meta
       name="description"
       content="Micropigmentacion de areolas y tratamiento de cicatrices en LOHE con enfoque reparador, sensibilidad y precision tecnica."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-areolas-cicatrices">
     <div class="ambient" aria-hidden="true"></div>
@@ -32,8 +48,8 @@
               apoyar procesos personales de reconstruccion y bienestar.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Solicitar consulta privada</a>
-              <a class="button button--light" href="/lohe/">Conocer enfoque LOHE</a>
+              <a class="button" href="contacto/">Solicitar consulta privada</a>
+              <a class="button button--light" href="lohe/">Conocer enfoque LOHE</a>
             </div>
           </div>
         </div>
@@ -52,7 +68,7 @@
               cicatriz, siempre dentro de un enfoque honesto.
             </p>
             <div class="tag-row" style="margin-top: 1rem">
-              <span class="tag">Acompañamiento sensible</span>
+              <span class="tag">AcompaÃ±amiento sensible</span>
               <span class="tag">Plan individual</span>
               <span class="tag">Privacidad</span>
             </div>
@@ -96,7 +112,7 @@
             </li>
             <li data-reveal>
               <div>
-                <h3>Diseño previo</h3>
+                <h3>DiseÃ±o previo</h3>
                 <p>Definimos tono y forma con pruebas de aproximacion antes de implantar pigmento.</p>
               </div>
             </li>
@@ -123,13 +139,16 @@
               <h2>Prefieres una primera consulta confidencial?</h2>
               <p>Podemos resolver dudas con tiempo y sin presion antes de decidir el tratamiento.</p>
             </div>
-            <a class="button" href="/contacto/">Pedir consulta</a>
+            <a class="button" href="contacto/">Pedir consulta</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Maquillaje para eventos</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Maquillaje para eventos</title>
     <meta
       name="description"
       content="Maquillaje para eventos en LOHE: propuesta elegante y duradera adaptada a horario, vestuario, luz y estilo personal."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="maquillaje-eventos">
     <div class="ambient" aria-hidden="true"></div>
@@ -32,8 +48,8 @@
               y su horario para que te veas bien en persona y en fotografia.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Reservar cita</a>
-              <a class="button button--light" href="/maquilladora/boda/">Ver novias</a>
+              <a class="button" href="contacto/">Reservar cita</a>
+              <a class="button button--light" href="maquilladora/boda/">Ver novias</a>
             </div>
           </div>
         </div>
@@ -123,13 +139,16 @@
               <h2>Quieres un look con presencia y sin exceso?</h2>
               <p>Te proponemos una version fiel a tu estilo y al tipo de evento que tengas.</p>
             </div>
-            <a class="button" href="/contacto/">Solicitar cita</a>
+            <a class="button" href="contacto/">Solicitar cita</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

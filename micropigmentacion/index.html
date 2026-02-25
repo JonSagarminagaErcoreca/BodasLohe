@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Micropigmentacion</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Micropigmentacion</title>
     <meta
       name="description"
       content="Micropigmentacion en LOHE: cejas, ojos, labios y especialidades reparadoras con un enfoque tecnico, sereno y de cuidado real."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-cejas">
     <div class="ambient" aria-hidden="true"></div>
@@ -41,42 +57,42 @@
             <h3>Cejas</h3>
             <p>Diseno de ceja natural con tecnicas de precision segun estructura facial y tipo de piel.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-cejas.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-cejas.html">Ver detalle completo</a></li>
             </ul>
           </article>
           <article class="card" id="ojos" data-reveal>
             <h3>Ojos</h3>
-            <p>Definicion de mirada y linea de pestañas con enfoque sutil para uso diario.</p>
+            <p>Definicion de mirada y linea de pestaÃ±as con enfoque sutil para uso diario.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-ojos.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-ojos.html">Ver detalle completo</a></li>
             </ul>
           </article>
           <article class="card" id="labios" data-reveal>
             <h3>Labios</h3>
             <p>Mejora de contorno y tono para lograr armonia y efecto saludable.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-labios.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-labios.html">Ver detalle completo</a></li>
             </ul>
           </article>
           <article class="card" id="areolas" data-reveal>
             <h3>Areolas</h3>
             <p>Trabajo reparador con cuidado especializado y plan individualizado.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-areolas-cicatrices.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-areolas-cicatrices.html">Ver detalle completo</a></li>
             </ul>
           </article>
           <article class="card" id="cicatrices" data-reveal>
             <h3>Cicatrices</h3>
             <p>Abordaje progresivo para suavizar contrastes y apoyar procesos de recuperacion estetica.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-areolas-cicatrices.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-areolas-cicatrices.html">Ver detalle completo</a></li>
             </ul>
           </article>
           <article class="card" id="oncologica" data-reveal>
             <h3>Oncologica</h3>
             <p>Micropigmentacion paramedica en un entorno seguro, respetuoso y profesional.</p>
             <ul class="service-links">
-              <li><a href="/micropigmentacion-paramedica-oncologica.html">Ver detalle completo</a></li>
+              <li><a href="micropigmentacion-paramedica-oncologica.html">Ver detalle completo</a></li>
             </ul>
           </article>
         </div>
@@ -84,6 +100,9 @@
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Eliminacion de tatuajes</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Eliminacion de tatuajes</title>
     <meta
       name="description"
       content="Servicio de eliminacion de tatuajes en LOHE con evaluacion previa y protocolo por fases para mejorar seguridad y control de resultados."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-eliminacion-tatuajes">
     <div class="ambient" aria-hidden="true"></div>
@@ -32,8 +48,8 @@
               para plantear tiempos realistas.
             </p>
             <div class="hero-actions">
-              <a class="button" href="/contacto/">Solicitar diagnostico</a>
-              <a class="button button--light" href="/micropigmentacion-cejas.html">Ver otras especialidades</a>
+              <a class="button" href="contacto/">Solicitar diagnostico</a>
+              <a class="button button--light" href="micropigmentacion-cejas.html">Ver otras especialidades</a>
             </div>
           </div>
         </div>
@@ -123,13 +139,16 @@
               <h2>Quieres eliminar o aclarar un tatuaje previo?</h2>
               <p>Podemos estimar el plan tras una valoracion tecnica en estudio.</p>
             </div>
-            <a class="button" href="/contacto/">Empezar valoracion</a>
+            <a class="button" href="contacto/">Empezar valoracion</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

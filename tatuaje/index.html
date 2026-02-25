@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Tatuajes</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Tatuajes</title>
     <meta
       name="description"
       content="Servicios de tatuajes en LOHE: linea fina y eliminacion de tatuajes con enfoque profesional y cuidado."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="micropigmentacion-eliminacion-tatuajes">
     <div class="ambient" aria-hidden="true"></div>
@@ -40,14 +56,14 @@
             <h3>Tatuaje de linea fina</h3>
             <p>Disenos de trazo limpio y minimal con acabado delicado.</p>
             <ul class="service-links">
-              <li><a href="/tatuaje/linea-fina/">Ir a linea fina</a></li>
+              <li><a href="tatuaje/linea-fina/">Ir a linea fina</a></li>
             </ul>
           </article>
           <article class="card" data-reveal>
             <h3>Eliminar tatuajes</h3>
             <p>Protocolo por fases para atenuar o retirar pigmento con control evolutivo.</p>
             <ul class="service-links">
-              <li><a href="/tatuaje/eliminacion-de-tatuajes/">Ir a eliminacion</a></li>
+              <li><a href="tatuaje/eliminacion-de-tatuajes/">Ir a eliminacion</a></li>
             </ul>
           </article>
         </div>
@@ -55,6 +71,9 @@
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+

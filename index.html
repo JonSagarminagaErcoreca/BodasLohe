@@ -1,9 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOHE Estudio | Home</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Home</title>
     <meta
       name="description"
       content="LOHE Estudio en Getxo: maquillaje, micropigmentacion, cursos y cuidado de la piel desde una vision premium, serena y profesional."
@@ -14,8 +30,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="home">
     <div class="ambient" aria-hidden="true"></div>
@@ -91,29 +107,29 @@
               <h3>Maquillaje</h3>
               <p>Servicios adaptados a contexto, piel y estilo personal.</p>
               <ul class="service-links">
-                <li><a href="/maquilladora/boda/">Maquillaje para novias</a></li>
-                <li><a href="/maquilladora/moda/">Maquillaje profesional para moda y TV</a></li>
-                <li><a href="/maquilladora/eventos/">Maquillaje para eventos</a></li>
-                <li><a href="/maquilladora/belly-painting/">Belly painting</a></li>
+                <li><a href="maquilladora/boda/">Maquillaje para novias</a></li>
+                <li><a href="maquilladora/moda/">Maquillaje profesional para moda y TV</a></li>
+                <li><a href="maquilladora/eventos/">Maquillaje para eventos</a></li>
+                <li><a href="maquilladora/belly-painting/">Belly painting</a></li>
               </ul>
             </article>
             <article class="card" data-reveal>
               <h3>Micropigmentacion</h3>
               <p>Especialidades tecnicas con diagnostico previo y expectativas claras.</p>
               <ul class="service-links">
-                <li><a href="/micropigmentacion/#cejas">Cejas</a></li>
-                <li><a href="/micropigmentacion/#ojos">Ojos</a></li>
-                <li><a href="/micropigmentacion/#labios">Labios</a></li>
-                <li><a href="/micropigmentacion/#areolas">Areolas y cicatrices</a></li>
-                <li><a href="/micropigmentacion/#oncologica">Paramedica y oncologica</a></li>
-                <li><a href="/tatuaje/eliminacion-de-tatuajes/">Eliminacion de tatuajes</a></li>
+                <li><a href="micropigmentacion/#cejas">Cejas</a></li>
+                <li><a href="micropigmentacion/#ojos">Ojos</a></li>
+                <li><a href="micropigmentacion/#labios">Labios</a></li>
+                <li><a href="micropigmentacion/#areolas">Areolas y cicatrices</a></li>
+                <li><a href="micropigmentacion/#oncologica">Paramedica y oncologica</a></li>
+                <li><a href="tatuaje/eliminacion-de-tatuajes/">Eliminacion de tatuajes</a></li>
               </ul>
             </article>
             <article class="card" data-reveal>
               <h3>Cursos y formacion</h3>
               <p>Programas para profesionales y equipos con metodo aplicable desde el dia uno.</p>
               <ul class="service-links">
-                <li><a href="/cursos/">Ver oferta formativa</a></li>
+                <li><a href="cursos/">Ver oferta formativa</a></li>
               </ul>
             </article>
           </div>
@@ -176,13 +192,16 @@
                 Contacta con el estudio y te orientamos sobre el servicio adecuado segun objetivo, timing y tipo de piel.
               </p>
             </div>
-            <a class="button" href="/contacto/">Ir a contacto</a>
+            <a class="button" href="contacto/">Ir a contacto</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
+
+
+
