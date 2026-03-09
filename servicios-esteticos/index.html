@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+    <title>LOHE Estudio | Servicios esteticos</title>
+    <meta
+      name="description"
+      content="Servicios esteticos en LOHE: cejas, pestanas y labios con enfoque natural, profesional y personalizado."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="servicios-esteticos">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--home hero--full">
+        <div
+          class="hero-shape-blur"
+          data-shape-blur
+          data-variation="2"
+          data-pixel-ratio="device"
+          data-shape-size="1.5"
+          data-roundness="0.4"
+          data-border-size="0.04"
+          data-circle-size="0.2"
+          data-circle-edge="1"
+          data-bg-color="#fbf7f4"
+          aria-hidden="true"
+        ></div>
+        <div class="hero-inner">
+          <div data-reveal>
+            <h1 class="hero-title">Servicios esteticos</h1>
+            <p class="hero-copy">
+              Tratamientos de cejas, pestanas y labios para mejorar forma, textura y armonia con un resultado natural.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="contacto/">Reservar cita</a>
+              <a class="button button--secondary" href="contacto/">Contactar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <h2 class="section-title">Especialidades</h2>
+          </div>
+          <div class="card-grid">
+            <article class="card" data-reveal>
+              <h3>Cejas</h3>
+              <p>Diseno y cuidado de cejas para equilibrar expresion y mantener un acabado limpio.</p>
+              <ul class="service-links">
+                <li><a href="servicios-esteticos/cejas/">Ver servicio</a></li>
+              </ul>
+            </article>
+            <article class="card" data-reveal>
+              <h3>Pestanas</h3>
+              <p>Lifting y definicion de pestanas para potenciar la mirada sin rigidez.</p>
+              <ul class="service-links">
+                <li><a href="servicios-esteticos/pestanas/">Ver servicio</a></li>
+              </ul>
+            </article>
+            <article class="card" data-reveal>
+              <h3>Labios</h3>
+              <p>Tratamientos de hidratacion, suavidad y tono para labios mas uniformes y saludables.</p>
+              <ul class="service-links">
+                <li><a href="servicios-esteticos/labios/">Ver servicio</a></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>

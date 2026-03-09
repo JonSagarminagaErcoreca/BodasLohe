@@ -1,8 +1,9 @@
 const menuModel = [
   {
-      type: "group",
+    type: "group",
     id: "maquillaje",
     label: "MAQUILLAJE",
+    href: "maquilladora/",
     children: [
       { id: "maquillaje-novias", label: "Maquillaje para novias", href: "maquilladora/boda/" },
       { id: "maquillaje-moda-tv", label: "Maquillaje profesional para moda y TV", href: "maquilladora/moda/" },
@@ -14,25 +15,42 @@ const menuModel = [
     type: "group",
     id: "micropigmentacion",
     label: "MICROPIGMENTACION",
+    href: "micropigmentacion/",
     children: [
-      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion-cejas.html" },
-      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion-ojos.html" },
-      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion-labios.html" },
+      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion/#cejas" },
+      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion/#ojos" },
+      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion/#labios" },
       {
-        id: "micropigmentacion-areolas-cicatrices",
-        label: "Areolas y cicatrices",
-        href: "micropigmentacion-areolas-cicatrices.html"
+        id: "micropigmentacion-capilar",
+        label: "Capilar",
+        href: "micropigmentacion/#capilar"
       },
       {
         id: "micropigmentacion-paramedica-oncologica",
         label: "Paramedica y oncologica",
-        href: "micropigmentacion-paramedica-oncologica.html"
-      },
-      {
-        id: "micropigmentacion-eliminacion-tatuajes",
-        label: "Eliminacion de tatuajes",
-        href: "tatuaje/eliminacion-de-tatuajes/"
+        href: "micropigmentacion/#oncologica"
       }
+    ]
+  },
+  {
+    type: "group",
+    id: "tatuajes",
+    label: "TATUAJES",
+    href: "tatuaje/",
+    children: [
+      { id: "tatuajes-linea-fina", label: "Tatuajes de linea fina", href: "tatuaje/linea-fina/" },
+      { id: "tatuajes-eliminacion", label: "Eliminar tatuajes", href: "tatuaje/eliminacion-de-tatuajes/" }
+    ]
+  },
+  {
+    type: "group",
+    id: "servicios-esteticos",
+    label: "SERVICIOS ESTETICOS",
+    href: "servicios-esteticos/",
+    children: [
+      { id: "servicios-esteticos-cejas", label: "Cejas", href: "servicios-esteticos/cejas/" },
+      { id: "servicios-esteticos-pestanas", label: "Pestanas", href: "servicios-esteticos/pestanas/" },
+      { id: "servicios-esteticos-labios", label: "Labios", href: "servicios-esteticos/labios/" }
     ]
   },
   { type: "link", id: "cursos-formacion", label: "CURSOS Y FORMACION", href: "cursos/" },
@@ -45,31 +63,26 @@ const pageToGroup = {
   "maquillaje-moda-tv": "maquillaje",
   "maquillaje-eventos": "maquillaje",
   "belly-painting": "maquillaje",
+  maquillaje: "maquillaje",
   micropigmentacion: "micropigmentacion",
   "micropigmentacion-cejas": "micropigmentacion",
   "micropigmentacion-ojos": "micropigmentacion",
   "micropigmentacion-labios": "micropigmentacion",
-  "micropigmentacion-areolas-cicatrices": "micropigmentacion",
+  "micropigmentacion-capilar": "micropigmentacion",
   "micropigmentacion-paramedica-oncologica": "micropigmentacion",
-  "micropigmentacion-eliminacion-tatuajes": "micropigmentacion"
+  "micropigmentacion-areolas-cicatrices": "micropigmentacion",
+  tatuajes: "tatuajes",
+  "tatuajes-linea-fina": "tatuajes",
+  "tatuajes-eliminacion": "tatuajes",
+  "micropigmentacion-eliminacion-tatuajes": "tatuajes",
+  "servicios-esteticos": "servicios-esteticos",
+  "servicios-esteticos-cejas": "servicios-esteticos",
+  "servicios-esteticos-pestanas": "servicios-esteticos",
+  "servicios-esteticos-labios": "servicios-esteticos"
 };
 
 const currentPage = document.body.dataset.page || "";
 const activeGroup = pageToGroup[currentPage] || "";
-
-if (currentPage === "micropigmentacion") {
-  const microHashRoutes = {
-    "#cejas": "micropigmentacion-cejas.html",
-    "#ojos": "micropigmentacion-ojos.html",
-    "#labios": "micropigmentacion-labios.html",
-    "#areolas": "micropigmentacion-areolas-cicatrices.html",
-    "#oncologica": "micropigmentacion-paramedica-oncologica.html"
-  };
-  const target = microHashRoutes[window.location.hash.toLowerCase()];
-  if (target) {
-    window.location.replace(new URL(target, document.baseURI).toString());
-  }
-}
 
 const renderMenu = () =>
   menuModel
@@ -85,7 +98,7 @@ const renderMenu = () =>
         `;
       }
 
-      const isGroupActive = activeGroup === item.id;
+      const isGroupActive = activeGroup === item.id || currentPage === item.id;
       const submenuId = `submenu-${item.id}`;
       const children = item.children
         .map((child) => {
@@ -110,6 +123,7 @@ const renderMenu = () =>
             data-submenu-toggle
             aria-expanded="false"
             aria-controls="${submenuId}"
+            data-group-href="${item.href || ""}"
           >
             ${item.label}
           </button>
@@ -151,6 +165,8 @@ const footerMarkup = `
         <ul class="footer-links">
           <li><a href="maquilladora/boda/">Maquillaje</a></li>
           <li><a href="micropigmentacion/">Micropigmentacion</a></li>
+          <li><a href="tatuaje/">Tatuajes</a></li>
+          <li><a href="servicios-esteticos/">Servicios esteticos</a></li>
           <li><a href="cursos/">Cursos y formacion</a></li>
         </ul>
       </div>
@@ -234,9 +250,12 @@ document.querySelectorAll("[data-submenu-toggle]").forEach((toggle) => {
     }
 
     if (!isMobile()) {
-      closeGroups({ except: parent });
-      parent.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
+      const href = toggle.dataset.groupHref;
+      if (href) {
+        window.location.href = href;
+        return;
+      }
+
       return;
     }
 
