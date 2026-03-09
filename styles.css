@@ -357,6 +357,12 @@ main {
   color: var(--mocha);
 }
 
+body[data-page="sobre-lohe"] .hero--home .hero-title,
+body[data-page="sobre-lohe"] .hero--home .scrambled-title,
+body[data-page="sobre-lohe"] .hero--home .hero-copy {
+  color: var(--charcoal);
+}
+
 .hero-shape-blur {
   position: absolute;
   inset: 0;
@@ -607,6 +613,18 @@ main {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.team-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.team-note {
+  margin-top: 1rem;
+  color: var(--mocha);
 }
 
 .card {
@@ -1152,6 +1170,10 @@ main {
   }
 
   .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
     grid-template-columns: 1fr;
   }
 }
