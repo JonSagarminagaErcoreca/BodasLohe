@@ -15,18 +15,18 @@ const menuModel = [
     id: "micropigmentacion",
     label: "MICROPIGMENTACION",
     children: [
-      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion/#cejas" },
-      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion/#ojos" },
-      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion/#labios" },
+      { id: "micropigmentacion-cejas", label: "Cejas", href: "micropigmentacion-cejas.html" },
+      { id: "micropigmentacion-ojos", label: "Ojos", href: "micropigmentacion-ojos.html" },
+      { id: "micropigmentacion-labios", label: "Labios", href: "micropigmentacion-labios.html" },
       {
         id: "micropigmentacion-areolas-cicatrices",
         label: "Areolas y cicatrices",
-        href: "micropigmentacion/#areolas"
+        href: "micropigmentacion-areolas-cicatrices.html"
       },
       {
         id: "micropigmentacion-paramedica-oncologica",
         label: "Paramedica y oncologica",
-        href: "micropigmentacion/#oncologica"
+        href: "micropigmentacion-paramedica-oncologica.html"
       },
       {
         id: "micropigmentacion-eliminacion-tatuajes",
@@ -45,6 +45,7 @@ const pageToGroup = {
   "maquillaje-moda-tv": "maquillaje",
   "maquillaje-eventos": "maquillaje",
   "belly-painting": "maquillaje",
+  micropigmentacion: "micropigmentacion",
   "micropigmentacion-cejas": "micropigmentacion",
   "micropigmentacion-ojos": "micropigmentacion",
   "micropigmentacion-labios": "micropigmentacion",
@@ -55,6 +56,20 @@ const pageToGroup = {
 
 const currentPage = document.body.dataset.page || "";
 const activeGroup = pageToGroup[currentPage] || "";
+
+if (currentPage === "micropigmentacion") {
+  const microHashRoutes = {
+    "#cejas": "micropigmentacion-cejas.html",
+    "#ojos": "micropigmentacion-ojos.html",
+    "#labios": "micropigmentacion-labios.html",
+    "#areolas": "micropigmentacion-areolas-cicatrices.html",
+    "#oncologica": "micropigmentacion-paramedica-oncologica.html"
+  };
+  const target = microHashRoutes[window.location.hash.toLowerCase()];
+  if (target) {
+    window.location.replace(new URL(target, document.baseURI).toString());
+  }
+}
 
 const renderMenu = () =>
   menuModel
