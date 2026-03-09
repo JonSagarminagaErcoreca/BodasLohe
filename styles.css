@@ -353,6 +353,10 @@ main {
   color: var(--taupe);
 }
 
+.hero--home .hero-copy {
+  color: var(--mocha);
+}
+
 .hero-shape-blur {
   position: absolute;
   inset: 0;
@@ -487,15 +491,25 @@ main {
   outline: none;
 }
 
-.button--light {
-  border-color: rgba(251, 247, 244, 0.42);
-  background: rgba(251, 247, 244, 0.16);
+.button--primary {
+  border-color: transparent;
+  background: var(--charcoal);
+  color: var(--milk);
 }
 
+.button--secondary,
+.button--light {
+  border-color: rgba(104, 93, 84, 0.45);
+  background: rgba(229, 222, 210, 0.72);
+  color: var(--charcoal);
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible,
 .button--light:hover,
 .button--light:focus-visible {
-  background: rgba(251, 247, 244, 0.3);
-  box-shadow: none;
+  background: rgba(229, 222, 210, 0.95);
+  box-shadow: 0 14px 28px rgba(35, 35, 35, 0.18);
 }
 
 .hero-panel {
@@ -664,6 +678,18 @@ main {
   margin-top: 0.8rem;
 }
 
+.reasons-list {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reasons-list li {
+  color: rgba(35, 35, 35, 0.9);
+}
+
 .meta-list {
   list-style: none;
   display: grid;
@@ -795,6 +821,15 @@ main {
 
 .cta-strip p {
   color: rgba(35, 35, 35, 0.75);
+}
+
+.home-cta-row {
+  margin-top: 1.2rem;
+}
+
+.home-actions-compact {
+  margin-top: 0;
+  align-self: center;
 }
 
 .contact-grid {
