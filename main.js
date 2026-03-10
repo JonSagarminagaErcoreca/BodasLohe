@@ -117,16 +117,21 @@ const renderMenu = () =>
 
       return `
         <li class="nav-item nav-item--group" data-group="${item.id}">
+          <a
+            class="nav-link nav-link--group ${isGroupActive ? "is-active" : ""}"
+            href="${item.href || "#"}"
+            ${currentPage === item.id ? 'aria-current="page"' : ""}
+          >
+            ${item.label}
+          </a>
           <button
             type="button"
-            class="nav-link nav-link--button ${isGroupActive ? "is-active" : ""}"
+            class="nav-link nav-link--button"
             data-submenu-toggle
             aria-expanded="false"
             aria-controls="${submenuId}"
-            data-group-href="${item.href || ""}"
-          >
-            ${item.label}
-          </button>
+            aria-label="Mostrar submenú de ${item.label}"
+          ></button>
           <ul class="submenu" id="${submenuId}">
             ${children}
           </ul>
@@ -196,7 +201,6 @@ if (footerRoot) {
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const groupNodes = [...document.querySelectorAll(".nav-item--group")];
-const isMobile = () => window.matchMedia("(max-width: 920px)").matches;
 
 const closeGroups = ({ except } = {}) => {
   groupNodes.forEach((group) => {
@@ -218,6 +222,7 @@ const closeMenu = () => {
   nav.classList.remove("is-open");
   navToggle.setAttribute("aria-expanded", "false");
   document.body.classList.remove("menu-open");
+  closeGroups();
 };
 
 const toggleGroup = (group) => {
@@ -238,24 +243,18 @@ if (navToggle && nav) {
     const open = nav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.classList.toggle("menu-open", open);
+    if (!open) {
+      closeGroups();
+    }
   });
 }
 
 document.querySelectorAll("[data-submenu-toggle]").forEach((toggle) => {
   toggle.addEventListener("click", (event) => {
     event.preventDefault();
+    event.stopPropagation();
     const parent = toggle.closest(".nav-item--group");
     if (!parent) {
-      return;
-    }
-
-    if (!isMobile()) {
-      const href = toggle.dataset.groupHref;
-      if (href) {
-        window.location.href = href;
-        return;
-      }
-
       return;
     }
 
@@ -263,58 +262,14 @@ document.querySelectorAll("[data-submenu-toggle]").forEach((toggle) => {
   });
 });
 
-groupNodes.forEach((group) => {
-  group.addEventListener("mouseenter", () => {
-    if (isMobile()) {
-      return;
-    }
-
-    closeGroups({ except: group });
-    group.classList.add("is-open");
-    const trigger = group.querySelector("[data-submenu-toggle]");
-    if (trigger) {
-      trigger.setAttribute("aria-expanded", "true");
-    }
-  });
-});
-
-if (nav) {
-  nav.addEventListener("mouseleave", () => {
-    if (!isMobile()) {
-      closeGroups();
-    }
-  });
-
-  nav.addEventListener("mouseover", (event) => {
-    if (isMobile()) {
-      return;
-    }
-
-    const target = event.target;
-    if (!(target instanceof Element)) {
-      return;
-    }
-
-    const overGroup = target.closest(".nav-item--group");
-    if (!overGroup) {
-      closeGroups();
-    }
-  });
-}
-
 document.querySelectorAll(".nav-list a").forEach((link) => {
   link.addEventListener("click", () => {
-    if (isMobile()) {
-      closeMenu();
-      closeGroups();
-    }
+    closeMenu();
   });
 });
 
 window.addEventListener("resize", () => {
-  if (!isMobile()) {
-    closeMenu();
-  }
+  closeMenu();
 });
 
 document.addEventListener("click", (event) => {
@@ -325,10 +280,6 @@ document.addEventListener("click", (event) => {
 
   if (!target.closest(".nav-item--group")) {
     closeGroups();
-  }
-
-  if (isMobile()) {
-    return;
   }
 
   if (!target.closest("[data-nav]") && !target.closest("[data-nav-toggle]")) {
@@ -535,113 +486,121 @@ const initShapeBlur = (node) => {
 
 shapeBlurNodes.forEach((node) => initShapeBlur(node));
 
-const scrambleNodes = [...document.querySelectorAll("[data-scramble-text]")];
-const shouldReduceMotion = prefersReducedMotionQuery;
+const heroTitleNodes = [...document.querySelectorAll(".hero .hero-title")];
+const splitTitleTargets = [];
 
-const initScrambleText = (node) => {
+const splitTitleSettings = {
+  delayMs: 50,
+  durationMs: 1250,
+  easing: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+  threshold: 0.1,
+  rootMargin: "-100px 0px"
+};
+
+const buildSplitTitle = (node) => {
   const text = (node.textContent || "").replace(/\s+/g, " ").trim();
   if (!text) {
-    return;
+    return null;
   }
 
-  const radius = Number(node.dataset.scrambleRadius || 100);
-  const durationMs = Number(node.dataset.scrambleDuration || 1.2) * 1000;
-  const speedMs = Math.max(24, Number(node.dataset.scrambleSpeed || 0.5) * 100);
-  const scrambleChars = (node.dataset.scrambleChars || ".:").split("");
-
+  node.setAttribute("aria-label", text);
   node.textContent = "";
+
+  const chars = [];
   const words = text.split(" ");
-  const states = [];
-  const spans = [];
 
   words.forEach((word, wordIndex) => {
     const wordSpan = document.createElement("span");
-    wordSpan.className = "scramble-word";
+    wordSpan.className = "split-word";
+    wordSpan.setAttribute("aria-hidden", "true");
+
     [...word].forEach((char) => {
-      const span = document.createElement("span");
-      span.className = "scramble-char";
-      span.dataset.original = char;
-      span.textContent = char;
-      states.push({ until: 0, lastSwap: 0 });
-      spans.push(span);
-      wordSpan.appendChild(span);
+      const charSpan = document.createElement("span");
+      charSpan.className = "split-char";
+      charSpan.textContent = char;
+      charSpan.setAttribute("aria-hidden", "true");
+      charSpan.style.opacity = "0";
+      charSpan.style.transform = "translate3d(0, 40px, 0)";
+      chars.push(charSpan);
+      wordSpan.appendChild(charSpan);
     });
+
     node.appendChild(wordSpan);
+
     if (wordIndex < words.length - 1) {
       node.appendChild(document.createTextNode(" "));
     }
   });
 
-  const randomScrambleChar = () => scrambleChars[Math.floor(Math.random() * scrambleChars.length)] || ".";
-  let rafId = null;
-
-  const tick = (now) => {
-    let keepAnimating = false;
-
-    spans.forEach((span, index) => {
-      const state = states[index];
-      const original = span.dataset.original || "";
-      if (now < state.until) {
-        keepAnimating = true;
-        if (now - state.lastSwap >= speedMs) {
-          span.textContent = randomScrambleChar();
-          state.lastSwap = now;
-        }
-      } else if (span.textContent !== original) {
-        span.textContent = original;
-      }
-    });
-
-    if (keepAnimating) {
-      rafId = window.requestAnimationFrame(tick);
-    } else {
-      rafId = null;
-    }
-  };
-
-  const energizeFromPoint = (x, y) => {
-    const now = performance.now();
-    spans.forEach((span, index) => {
-      const rect = span.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const distance = Math.hypot(x - centerX, y - centerY);
-      if (distance > radius) {
-        return;
-      }
-
-      const power = 1 - distance / radius;
-      states[index].until = Math.max(states[index].until, now + durationMs * power);
-    });
-
-    if (!rafId) {
-      rafId = window.requestAnimationFrame(tick);
-    }
-  };
-
-  node.addEventListener("pointermove", (event) => {
-    energizeFromPoint(event.clientX, event.clientY);
-  });
-
-  node.addEventListener("pointerenter", (event) => {
-    energizeFromPoint(event.clientX, event.clientY);
-  });
-
-  node.addEventListener(
-    "touchmove",
-    (event) => {
-      const touch = event.touches[0];
-      if (!touch) {
-        return;
-      }
-      energizeFromPoint(touch.clientX, touch.clientY);
-    },
-    { passive: true }
-  );
+  return { node, chars, played: false };
 };
 
-if (!shouldReduceMotion) {
-  scrambleNodes.forEach((node) => initScrambleText(node));
+if (!prefersReducedMotionQuery) {
+  heroTitleNodes.forEach((node) => {
+    const splitTarget = buildSplitTitle(node);
+    if (splitTarget) {
+      splitTitleTargets.push(splitTarget);
+    }
+  });
+}
+
+const playSplitTitle = (target) => {
+  if (target.played) {
+    return;
+  }
+
+  target.played = true;
+  const canAnimate = "animate" in Element.prototype;
+
+  target.chars.forEach((charNode, index) => {
+    if (!canAnimate) {
+      charNode.style.opacity = "1";
+      charNode.style.transform = "translate3d(0, 0, 0)";
+      return;
+    }
+
+    charNode.animate(
+      [
+        { opacity: 0, transform: "translate3d(0, 40px, 0)" },
+        { opacity: 1, transform: "translate3d(0, 0, 0)" }
+      ],
+      {
+        duration: splitTitleSettings.durationMs,
+        delay: index * splitTitleSettings.delayMs,
+        easing: splitTitleSettings.easing,
+        fill: "forwards"
+      }
+    );
+  });
+};
+
+if (splitTitleTargets.length > 0) {
+  if (!("IntersectionObserver" in window)) {
+    splitTitleTargets.forEach((target) => playSplitTitle(target));
+  } else {
+    const splitObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const match = splitTitleTargets.find((target) => target.node === entry.target);
+          if (match) {
+            playSplitTitle(match);
+          }
+
+          splitObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: splitTitleSettings.threshold,
+        rootMargin: splitTitleSettings.rootMargin
+      }
+    );
+
+    splitTitleTargets.forEach((target) => splitObserver.observe(target.node));
+  }
 }
 
 const revealItems = document.querySelectorAll("[data-reveal]");

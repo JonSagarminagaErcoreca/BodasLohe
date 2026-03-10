@@ -32,6 +32,10 @@ body {
   line-height: 1.65;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 ::selection {
   background: var(--mocha);
   color: var(--milk);
@@ -157,6 +161,12 @@ body[data-page="home"] .site-header {
   position: relative;
 }
 
+.nav-item--group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.12rem;
+}
+
 .nav-link {
   border: none;
   border-radius: 999px;
@@ -171,6 +181,11 @@ body[data-page="home"] .site-header {
   padding: 0.72rem 0.92rem;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link--group {
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -190,7 +205,12 @@ body[data-page="home"] .site-header {
 .nav-link--button {
   display: inline-flex;
   align-items: center;
-  gap: 0.38rem;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  font-size: 0;
+  flex: 0 0 auto;
 }
 
 .nav-link--button::after {
@@ -346,8 +366,7 @@ main {
 }
 
 .hero--home .hero-copy--lead,
-.hero--home .hero-title,
-.hero--home .scrambled-title {
+.hero--home .hero-title {
   color: var(--taupe);
 }
 
@@ -356,7 +375,6 @@ main {
 }
 
 body[data-page="sobre-lohe"] .hero--home .hero-title,
-body[data-page="sobre-lohe"] .hero--home .scrambled-title,
 body[data-page="sobre-lohe"] .hero--home .hero-copy {
   color: var(--charcoal);
 }
@@ -436,11 +454,14 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
   max-width: 16ch;
 }
 
+.split-char,
 .scramble-char {
   display: inline-block;
   white-space: pre;
+  will-change: transform, opacity;
 }
 
+.split-word,
 .scramble-word {
   display: inline-block;
   white-space: nowrap;
@@ -449,12 +470,6 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 .hero-copy--lead {
   margin: 0 0 1rem;
   color: var(--milk);
-}
-
-.scrambled-title {
-  color: var(--milk);
-  word-break: normal;
-  overflow-wrap: normal;
 }
 
 .hero-copy {
@@ -643,6 +658,43 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
   color: rgba(35, 35, 35, 0.75);
 }
 
+.card--link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  min-height: 100%;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.card--link .card-link-copy {
+  margin-top: auto;
+  padding-top: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--mocha);
+  font-size: 0.95rem;
+}
+
+.card--link .card-link-copy::before {
+  content: "\21B3";
+  color: var(--taupe);
+}
+
+.card--link:hover,
+.card--link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(35, 35, 35, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  outline: none;
+}
+
+.card--link:hover .card-link-copy,
+.card--link:focus-visible .card-link-copy {
+  color: var(--charcoal);
+}
+
 .service-links {
   margin-top: 0.95rem;
   list-style: none;
@@ -659,7 +711,7 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 }
 
 .service-links a::before {
-  content: "↳";
+  content: "\21B3";
   color: var(--taupe);
 }
 
@@ -702,6 +754,10 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 .micro-note {
   margin-top: 0.75rem;
   color: var(--mocha);
+}
+
+.anchor-target {
+  scroll-margin-top: 7.5rem;
 }
 
 .micro-subtitle {
@@ -759,6 +815,31 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 .meta-value {
   color: var(--charcoal);
   font-weight: 500;
+}
+
+.steps-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.78rem;
+}
+
+.steps-list li {
+  border: none;
+  border-radius: 1rem;
+  background: rgba(229, 222, 210, 0.38);
+  padding: 0.9rem;
+}
+
+.steps-list h3 {
+  font-family: var(--sans);
+  font-size: 1.06rem;
+  margin-bottom: 0.32rem;
+}
+
+.steps-list p {
+  color: rgba(35, 35, 35, 0.82);
 }
 
 .timeline {
@@ -1040,26 +1121,151 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 }
 
 @media (min-width: 921px) {
+  .site-header .container {
+    width: min(1180px, calc(100% - 3rem));
+  }
+
+  .topbar {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    position: relative;
+    z-index: 121;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    width: min(420px, 92vw);
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    transform: translateX(102%);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.9rem;
+    padding: 5.2rem 1rem 1.1rem;
+    background: rgba(251, 247, 244, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(163, 147, 130, 0.28);
+    box-shadow: -14px 0 34px rgba(35, 35, 35, 0.14);
+    transition: transform 0.28s ease;
+    overflow-y: auto;
+    z-index: 119;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  body.menu-open .nav-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 130;
+    background: rgba(251, 247, 244, 0.98);
+    box-shadow: 0 10px 24px rgba(35, 35, 35, 0.1);
+  }
+
+  .nav-list {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    flex-wrap: nowrap;
+  }
+
+  .nav-list > .nav-item {
+    flex: 0 0 auto;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+    padding-inline: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .nav-item:not(.nav-item--group) .nav-link {
+    min-height: 2.35rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-link--button {
+    width: 2.35rem;
+    height: 2.35rem;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-item--group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.32rem;
+  }
+
+  .nav-item--group .nav-link--group {
+    width: auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-item--group .submenu {
+    grid-column: 1 / -1;
+    position: static;
+    width: 100%;
+    min-width: auto;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: var(--milk);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 0.8rem;
+    transition: max-height 0.2s ease, padding 0.2s ease;
+  }
+
+  .nav-item--group:hover > .submenu,
+  .nav-item--group:focus-within > .submenu {
+    max-height: 0;
+    padding-top: 0;
+  }
+
+  .nav-item--group.is-open > .submenu {
+    max-height: 420px;
+    padding-top: 0.42rem;
+  }
+
+  .submenu-link {
+    padding: 0.58rem 0.4rem;
+  }
+
   .site-header {
     background: rgba(251, 247, 244, 0.52);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border-bottom: none;
-  }
-
-  .submenu {
-    background: var(--milk);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
+    overflow: visible;
   }
 }
 
 @media (max-width: 1130px) {
-  .site-nav {
-    gap: 0.7rem;
-  }
-
   .nav-link {
     padding: 0.68rem 0.72rem;
     letter-spacing: 0.13em;
@@ -1084,14 +1290,20 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
     justify-content: space-between;
   }
 
+  .brand {
+    margin-left: 0.5rem;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
 
   .site-nav {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
     top: calc(100% + 1px);
     flex-direction: column;
     align-items: stretch;
@@ -1135,12 +1347,23 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
     padding-inline: 0.82rem;
   }
 
+  .nav-item:not(.nav-item--group) .nav-link {
+    min-height: 2.35rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .nav-link--button {
-    justify-content: space-between;
+    width: 2.35rem;
+    height: 2.35rem;
+    justify-content: center;
+    padding: 0;
   }
 
   .nav-item--group .submenu {
+    grid-column: 1 / -1;
     position: static;
+    width: 100%;
     min-width: auto;
     border: none;
     box-shadow: none;
@@ -1164,6 +1387,26 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
   .nav-item--group.is-open > .submenu {
     max-height: 420px;
     padding-top: 0.42rem;
+  }
+
+  .nav-item--group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.32rem;
+  }
+
+  .nav-item--group .nav-link--group {
+    width: auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-item--group .nav-link--button {
+    margin-left: 0;
   }
 
   .submenu-link {
