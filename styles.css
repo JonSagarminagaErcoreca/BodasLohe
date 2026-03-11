@@ -342,7 +342,7 @@ body[data-page="home"] .site-header {
 }
 
 main {
-  padding-bottom: 2rem;
+  padding-bottom: 0;
 }
 
 .hero {
@@ -453,6 +453,29 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 
 .hero--makeup {
   background-image: url("assets/img/IMG_5008.jpeg");
+}
+
+body[data-page="maquillaje"] .hero--makeup {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(238, 93, 36, 0.16) 0%, rgba(238, 93, 36, 0.06) 20%, rgba(238, 93, 36, 0) 46%),
+    linear-gradient(135deg, rgba(251, 247, 244, 0.98) 0%, rgba(229, 222, 210, 0.82) 100%);
+}
+
+body[data-page="maquillaje"] .hero--makeup::before {
+  background: transparent;
+}
+
+body[data-page="maquillaje"] .hero--makeup::after {
+  border-color: rgba(163, 147, 130, 0.26);
+}
+
+body[data-page="maquillaje"] .hero--makeup .hero-title,
+body[data-page="maquillaje"] .hero--makeup .hero-copy--lead {
+  color: var(--taupe);
+}
+
+body[data-page="maquillaje"] .hero--makeup .hero-copy {
+  color: var(--mocha);
 }
 
 .hero--micro {
@@ -810,6 +833,10 @@ body[data-page="micropigmentacion"] .micro-topic .hero-actions + * {
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
 }
 
+body[data-page="maquillaje"] .layout-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .layout-two.layout-two--faq-full {
   grid-template-columns: 1fr;
 }
@@ -1142,6 +1169,38 @@ body[data-page="micropigmentacion"] .micro-topic-title--sub {
   color: rgba(35, 35, 35, 0.82);
 }
 
+body[data-page="maquillaje"] .steps-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+body[data-page="maquillaje"] .section > .container > .steps-list.content-box {
+  padding-right: 0;
+}
+
+body[data-page="maquillaje"] .steps-list li {
+  display: flex;
+  min-height: 100%;
+  border-radius: 1.2rem;
+  background: var(--taupe);
+  padding: 1.2rem;
+}
+
+body[data-page="maquillaje"] .steps-list li > div {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+}
+
+body[data-page="maquillaje"] .steps-list h3 {
+  color: var(--milk);
+  margin-bottom: 0;
+}
+
+body[data-page="maquillaje"] .steps-list p {
+  color: rgba(251, 247, 244, 0.88);
+}
+
 .timeline {
   list-style: none;
   counter-reset: lohe-step;
@@ -1351,6 +1410,13 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
   box-shadow: var(--shadow-soft);
 }
 
+body[data-page="maquillaje"] .cta-strip {
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
 .cta-strip h2 {
   font-family: var(--serif);
   font-size: clamp(1.45rem, 2.3vw, 2rem);
@@ -1450,7 +1516,7 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
 }
 
 .site-footer {
-  margin-top: 2.6rem;
+  margin-top: 0;
   padding: 2.4rem 0 2rem;
   background: var(--charcoal);
   color: var(--milk);
@@ -1682,6 +1748,10 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  body[data-page="maquillaje"] .steps-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 920px) {
@@ -1884,6 +1954,10 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
   }
 
   .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="maquillaje"] .steps-list {
     grid-template-columns: 1fr;
   }
 }
