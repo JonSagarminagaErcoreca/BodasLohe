@@ -299,6 +299,188 @@ document.querySelectorAll("[data-year]").forEach((yearNode) => {
   yearNode.textContent = String(new Date().getFullYear());
 });
 
+let faqCounter = 0;
+
+const setFaqItemState = (item, open) => {
+  const trigger = item.querySelector(".faq-question");
+  const panel = item.querySelector(".faq-panel");
+  if (!trigger || !panel) {
+    return;
+  }
+
+  item.classList.toggle("is-open", open);
+  trigger.setAttribute("aria-expanded", open ? "true" : "false");
+  panel.setAttribute("aria-hidden", open ? "false" : "true");
+  panel.toggleAttribute("inert", !open);
+};
+
+const initFaqAccordion = () => {
+  const faqLists = [...document.querySelectorAll(".faq-list")];
+
+  faqLists.forEach((list) => {
+    const layout = list.closest(".layout-two");
+    if (layout) {
+      layout.classList.add("layout-two--faq-full");
+    }
+
+    const wrapper = list.closest(".content-box, .meta-box");
+    if (wrapper) {
+      wrapper.classList.add("faq-box");
+    }
+
+    const items = [...list.children].filter(
+      (child) => child instanceof HTMLElement && child.classList.contains("faq-item")
+    );
+    if (items.length === 0) {
+      return;
+    }
+
+    list.classList.add("faq-list--accordion");
+
+    items.forEach((item) => {
+      if (item.querySelector(".faq-question")) {
+        return;
+      }
+
+      const heading = item.querySelector("h1, h2, h3, h4, h5, h6");
+      if (!heading) {
+        return;
+      }
+
+      const title = (heading.textContent || "").trim();
+      const idBase = `faq-${faqCounter++}`;
+      const triggerId = `${idBase}-trigger`;
+      const panelId = `${idBase}-panel`;
+
+      const trigger = document.createElement("button");
+      trigger.type = "button";
+      trigger.className = "faq-question";
+      trigger.id = triggerId;
+      trigger.setAttribute("aria-controls", panelId);
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.textContent = title;
+
+      const panel = document.createElement("div");
+      panel.className = "faq-panel";
+      panel.id = panelId;
+      panel.setAttribute("role", "region");
+      panel.setAttribute("aria-labelledby", triggerId);
+
+      const panelInner = document.createElement("div");
+      panelInner.className = "faq-panel-inner";
+
+      const answer = document.createElement("div");
+      answer.className = "faq-answer";
+
+      heading.remove();
+
+      while (item.firstChild) {
+        answer.appendChild(item.firstChild);
+      }
+
+      panelInner.appendChild(answer);
+      panel.appendChild(panelInner);
+      item.appendChild(trigger);
+      item.appendChild(panel);
+
+      setFaqItemState(item, false);
+
+      trigger.addEventListener("click", () => {
+        const shouldOpen = !item.classList.contains("is-open");
+
+        items.forEach((otherItem) => {
+          setFaqItemState(otherItem, false);
+        });
+
+        if (shouldOpen) {
+          setFaqItemState(item, true);
+        }
+      });
+    });
+  });
+};
+
+initFaqAccordion();
+
+const setMicroItemState = (item, open) => {
+  const trigger = item.querySelector("[data-micro-trigger]");
+  const panel = item.querySelector("[data-micro-panel]");
+  if (!trigger || !panel) {
+    return;
+  }
+
+  item.classList.toggle("is-open", open);
+  trigger.setAttribute("aria-expanded", open ? "true" : "false");
+  panel.setAttribute("aria-hidden", open ? "false" : "true");
+  panel.toggleAttribute("inert", !open);
+};
+
+const initMicroAccordion = () => {
+  const accordions = [...document.querySelectorAll("[data-micro-accordion]")];
+  if (accordions.length === 0) {
+    return;
+  }
+
+  accordions.forEach((accordion) => {
+    const items = [...accordion.children].filter(
+      (child) => child instanceof HTMLElement && child.matches("[data-micro-item]")
+    );
+    if (items.length === 0) {
+      return;
+    }
+
+    const closeItems = ({ except } = {}) => {
+      items.forEach((item) => {
+        if (except && item === except) {
+          return;
+        }
+        setMicroItemState(item, false);
+      });
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector("[data-micro-trigger]");
+      if (!trigger) {
+        return;
+      }
+
+      setMicroItemState(item, false);
+
+      trigger.addEventListener("click", () => {
+        const shouldOpen = !item.classList.contains("is-open");
+        closeItems({ except: shouldOpen ? item : null });
+        setMicroItemState(item, shouldOpen);
+      });
+    });
+
+    const openItemFromHash = () => {
+      const rawHash = window.location.hash;
+      if (!rawHash || rawHash === "#") {
+        return;
+      }
+
+      const hash = decodeURIComponent(rawHash.slice(1));
+      const target = document.getElementById(hash);
+      if (!target) {
+        return;
+      }
+
+      const owner = target.closest("[data-micro-item]");
+      if (!owner || !accordion.contains(owner)) {
+        return;
+      }
+
+      closeItems({ except: owner });
+      setMicroItemState(owner, true);
+    };
+
+    openItemFromHash();
+    window.addEventListener("hashchange", openItemFromHash);
+  });
+};
+
+initMicroAccordion();
+
 const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const shapeBlurNodes = [...document.querySelectorAll("[data-shape-blur]")];
 
