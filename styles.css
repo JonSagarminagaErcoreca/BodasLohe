@@ -3,9 +3,10 @@
   --oat: #e5ded2;
   --taupe: #a39382;
   --mocha: #685d54;
-  --accent: #ee5d24;
-  --accent-soft: rgba(238, 93, 36, 0.14);
-  --accent-glow: rgba(238, 93, 36, 0.28);
+  --accent: #d19f72;
+  --accent-rgb: 209, 159, 114;
+  --accent-soft: rgba(var(--accent-rgb), 0.14);
+  --accent-glow: rgba(var(--accent-rgb), 0.28);
   --charcoal: #232323;
   --white: #ffffff;
   --line: rgba(104, 93, 84, 0.2);
@@ -394,7 +395,7 @@ main {
 
 body[data-page="home"] .hero--home::before {
   background:
-    radial-gradient(circle at 82% 16%, rgba(238, 93, 36, 0.2) 0%, rgba(238, 93, 36, 0.08) 17%, rgba(238, 93, 36, 0) 44%),
+    radial-gradient(circle at 82% 16%, rgba(var(--accent-rgb), 0.2) 0%, rgba(var(--accent-rgb), 0.08) 17%, rgba(var(--accent-rgb), 0) 44%),
     transparent;
 }
 
@@ -406,10 +407,10 @@ body[data-page="home"] .hero--home::after {
   border-radius: 50%;
   top: clamp(-128px, -8.5vw, -52px);
   right: clamp(-132px, -9vw, -28px);
-  border: 1px solid rgba(238, 93, 36, 0.34);
+  border: 1px solid rgba(var(--accent-rgb), 0.34);
   box-shadow: inset 0 0 0 1px rgba(251, 247, 244, 0.48);
   background:
-    radial-gradient(circle at 42% 38%, rgba(238, 93, 36, 0.13) 0%, rgba(238, 93, 36, 0.04) 46%, rgba(238, 93, 36, 0) 72%),
+    radial-gradient(circle at 42% 38%, rgba(var(--accent-rgb), 0.13) 0%, rgba(var(--accent-rgb), 0.04) 46%, rgba(var(--accent-rgb), 0) 72%),
     url("assets/img/LoheAssets/LE_Isotipo_taupe.svg") center / 72% no-repeat;
   opacity: 0.9;
   pointer-events: none;
@@ -457,7 +458,7 @@ body[data-page="sobre-lohe"] .hero--home .hero-copy {
 
 body[data-page="maquillaje"] .hero--makeup {
   background:
-    radial-gradient(circle at 82% 18%, rgba(238, 93, 36, 0.16) 0%, rgba(238, 93, 36, 0.06) 20%, rgba(238, 93, 36, 0) 46%),
+    radial-gradient(circle at 82% 18%, rgba(var(--accent-rgb), 0.16) 0%, rgba(var(--accent-rgb), 0.06) 20%, rgba(var(--accent-rgb), 0) 46%),
     linear-gradient(135deg, rgba(251, 247, 244, 0.98) 0%, rgba(229, 222, 210, 0.82) 100%);
 }
 
@@ -517,7 +518,7 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(238, 93, 36, 0.92);
+  color: rgba(var(--accent-rgb), 0.92);
 }
 
 .hero-title {
@@ -564,13 +565,13 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
 
 .content-box .hero-actions,
 .meta-box .hero-actions,
-body[data-page="micropigmentacion"] .micro-topic .hero-actions {
+.micro-topic .hero-actions {
   margin-top: 1.9rem;
 }
 
 .content-box .hero-actions + *,
 .meta-box .hero-actions + *,
-body[data-page="micropigmentacion"] .micro-topic .hero-actions + * {
+.micro-topic .hero-actions + * {
   margin-top: 1.9rem;
 }
 
@@ -669,6 +670,10 @@ body[data-page="micropigmentacion"] .micro-topic .hero-actions + * {
   padding: clamp(3rem, 6vw, 5.4rem) 0;
 }
 
+.section--flush-bottom {
+  padding-bottom: 0;
+}
+
 .section--soft {
   background: rgba(229, 222, 210, 0.54);
 }
@@ -714,7 +719,7 @@ body[data-page="micropigmentacion"] .micro-topic .hero-actions + * {
   font-size: 0.72rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(238, 93, 36, 0.86);
+  color: rgba(var(--accent-rgb), 0.86);
 }
 
 .section-title {
@@ -892,16 +897,16 @@ body[data-page="maquillaje"] .layout-two {
   font-size: clamp(1.4rem, 2.2vw, 1.9rem);
 }
 
-body[data-page="micropigmentacion"] .micro-services-stack {
+.micro-services-stack {
   gap: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-accordion {
+.micro-accordion {
   display: grid;
   gap: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-topic {
+.micro-topic {
   --micro-topic-bg: var(--oat);
   --micro-title-color: var(--charcoal);
   --micro-text-color: rgba(35, 35, 35, 0.86);
@@ -913,11 +918,11 @@ body[data-page="micropigmentacion"] .micro-topic {
   background: transparent;
 }
 
-body[data-page="micropigmentacion"] .micro-accordion .micro-topic:last-child {
+.micro-accordion .micro-topic:last-child {
   border-bottom: 1px solid rgba(163, 147, 130, 0.18);
 }
 
-body[data-page="micropigmentacion"] .micro-topic::before {
+.micro-topic::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -925,33 +930,33 @@ body[data-page="micropigmentacion"] .micro-topic::before {
   z-index: -1;
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-mocha {
+.micro-topic--tone-mocha {
   --micro-topic-bg: #685d54;
   --micro-title-color: rgba(251, 247, 244, 0.96);
   --micro-text-color: rgba(251, 247, 244, 0.9);
   --micro-icon-color: rgba(251, 247, 244, 0.94);
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-mocha .button--primary {
+.micro-topic--tone-mocha .button--primary {
   border-color: rgba(251, 247, 244, 0.6);
   background: rgba(251, 247, 244, 0.2);
   color: var(--milk);
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-mocha .button--secondary {
+.micro-topic--tone-mocha .button--secondary {
   border-color: rgba(251, 247, 244, 0.48);
   color: var(--milk);
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-taupe {
+.micro-topic--tone-taupe {
   --micro-topic-bg: #a39382;
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-oat {
+.micro-topic--tone-oat {
   --micro-topic-bg: #e5ded2;
 }
 
-body[data-page="micropigmentacion"] .micro-topic--tone-milk {
+.micro-topic--tone-milk {
   --micro-topic-bg: #fbf7f4;
 }
 
@@ -959,11 +964,11 @@ body[data-page="micropigmentacion"] .micro-topic#labios {
   border-top-color: transparent;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-heading {
+.micro-topic-heading {
   margin: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-trigger {
+.micro-topic-trigger {
   width: 100%;
   border: none;
   background: transparent;
@@ -981,7 +986,7 @@ body[data-page="micropigmentacion"] .micro-topic-trigger {
   cursor: pointer;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-trigger::after {
+.micro-topic-trigger::after {
   content: "+";
   color: var(--micro-icon-color);
   font-family: var(--sans);
@@ -990,49 +995,49 @@ body[data-page="micropigmentacion"] .micro-topic-trigger::after {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-trigger:hover,
-body[data-page="micropigmentacion"] .micro-topic-trigger:focus-visible {
+.micro-topic-trigger:hover,
+.micro-topic-trigger:focus-visible {
   color: var(--micro-title-color);
 }
 
-body[data-page="micropigmentacion"] .micro-topic-trigger:hover::after,
-body[data-page="micropigmentacion"] .micro-topic-trigger:focus-visible::after {
+.micro-topic-trigger:hover::after,
+.micro-topic-trigger:focus-visible::after {
   color: var(--accent);
 }
 
-body[data-page="micropigmentacion"] .micro-topic-trigger:focus-visible {
+.micro-topic-trigger:focus-visible {
   outline: 2px solid var(--accent-soft);
   outline-offset: -2px;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-panel {
+.micro-topic-panel {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.26s ease;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-panel-inner {
+.micro-topic-panel-inner {
   overflow: hidden;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-content {
+.micro-topic-content {
   padding: 0 max(1.5rem, calc(50vw - 590px)) clamp(1.2rem, 2vw, 1.7rem);
 }
 
-body[data-page="micropigmentacion"] .micro-topic-content > :not(.hero-actions):not(.micro-subtopics-grid) {
+.micro-topic-content > :not(.hero-actions):not(.micro-subtopics-grid) {
   max-width: 72ch;
 }
 
-body[data-page="micropigmentacion"] .micro-topic p {
+.micro-topic p {
   color: var(--micro-text-color);
   font-size: clamp(1rem, 1.1vw, 1.08rem);
 }
 
-body[data-page="micropigmentacion"] .micro-topic p + p {
+.micro-topic p + p {
   margin-top: 0.74rem;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-subtitle {
+.micro-topic-subtitle {
   margin: 1.15rem 0 0.52rem;
   font-family: var(--serif);
   font-size: clamp(1.16rem, 1.4vw, 1.34rem);
@@ -1040,7 +1045,7 @@ body[data-page="micropigmentacion"] .micro-topic-subtitle {
   color: var(--micro-title-color);
 }
 
-body[data-page="micropigmentacion"] .micro-subtopics-grid {
+.micro-subtopics-grid {
   margin-top: 1.3rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1050,39 +1055,39 @@ body[data-page="micropigmentacion"] .micro-subtopics-grid {
   padding-right: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-subtopic {
+.micro-subtopic {
   min-width: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-subtopic .micro-topic-subtitle {
+.micro-subtopic .micro-topic-subtitle {
   margin-top: 0;
 }
 
-body[data-page="micropigmentacion"] .micro-topic.is-open .micro-topic-panel {
+.micro-topic.is-open .micro-topic-panel {
   grid-template-rows: 1fr;
 }
 
-body[data-page="micropigmentacion"] .micro-topic.is-open .micro-topic-trigger {
+.micro-topic.is-open .micro-topic-trigger {
   color: var(--micro-title-color);
 }
 
-body[data-page="micropigmentacion"] .micro-topic.is-open .micro-topic-trigger::after {
+.micro-topic.is-open .micro-topic-trigger::after {
   transform: rotate(45deg);
   color: var(--micro-icon-color);
 }
 
-body[data-page="micropigmentacion"] .micro-topic--faq {
+.micro-topic--faq {
   margin-inline: 0;
   margin-top: clamp(3rem, 6vw, 5rem);
   padding: 0;
   border: none;
 }
 
-body[data-page="micropigmentacion"] .micro-topic--faq::before {
+.micro-topic--faq::before {
   display: none;
 }
 
-body[data-page="micropigmentacion"] .micro-topic-title {
+.micro-topic-title {
   margin: 0 0 0.72rem;
   font-family: var(--serif);
   font-size: clamp(1.4rem, 1.72vw, 1.7rem);
@@ -1090,7 +1095,7 @@ body[data-page="micropigmentacion"] .micro-topic-title {
   color: var(--charcoal);
 }
 
-body[data-page="micropigmentacion"] .micro-topic-title--sub {
+.micro-topic-title--sub {
   font-size: clamp(1.4rem, 1.72vw, 1.7rem);
 }
 
@@ -1264,7 +1269,7 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
 
 .faq-item:hover,
 .faq-item:focus-within {
-  border-color: rgba(238, 93, 36, 0.36);
+  border-color: rgba(var(--accent-rgb), 0.36);
 }
 
 .faq-question {
@@ -1323,7 +1328,7 @@ body[data-page="micropigmentacion"] .micro-topic--faq .faq-list {
 
 .faq-item.is-open {
   background: transparent;
-  border-color: rgba(238, 93, 36, 0.36);
+  border-color: rgba(var(--accent-rgb), 0.36);
 }
 
 .faq-item.is-open .faq-question {
@@ -1512,7 +1517,7 @@ body[data-page="maquillaje"] .cta-strip {
 .form-field input:focus,
 .form-field textarea:focus {
   outline: 2px solid var(--accent-soft);
-  border-color: rgba(238, 93, 36, 0.58);
+  border-color: rgba(var(--accent-rgb), 0.58);
 }
 
 .site-footer {
@@ -1763,12 +1768,12 @@ body[data-page="maquillaje"] .cta-strip {
     width: min(1180px, calc(100% - 2rem));
   }
 
-  body[data-page="micropigmentacion"] .micro-topic-trigger,
-  body[data-page="micropigmentacion"] .micro-topic-content {
+  .micro-topic-trigger,
+  .micro-topic-content {
     padding-inline: 1rem;
   }
 
-  body[data-page="micropigmentacion"] .micro-subtopics-grid {
+  .micro-subtopics-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
@@ -1967,12 +1972,12 @@ body[data-page="maquillaje"] .cta-strip {
     width: min(1180px, calc(100% - 1.2rem));
   }
 
-  body[data-page="micropigmentacion"] .micro-topic-trigger {
+  .micro-topic-trigger {
     padding-inline: 0.6rem;
     padding-block: 0.9rem;
   }
 
-  body[data-page="micropigmentacion"] .micro-topic-content {
+  .micro-topic-content {
     padding-inline: 0.6rem;
     padding-bottom: 1rem;
   }
