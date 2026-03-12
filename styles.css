@@ -113,6 +113,10 @@ ol {
   margin: 0 auto;
 }
 
+.container.container--hero-width {
+  width: min(1260px, calc(100% - 2rem));
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -682,6 +686,44 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
   background: rgba(229, 222, 210, 0.75);
 }
 
+.section--milk {
+  background: var(--milk);
+}
+
+.section--eventos-photo {
+  background: transparent;
+}
+
+.eventos-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+  align-items: start;
+}
+
+.eventos-photo-media {
+  position: relative;
+  min-height: clamp(420px, 54vw, 740px);
+  border-radius: 2rem;
+  border: 1px solid rgba(163, 147, 130, 0.35);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(35, 35, 35, 0.12) 0%, rgba(35, 35, 35, 0.04) 100%),
+    url("assets/img/IMG_5571.JPG") center 26% / cover no-repeat;
+  box-shadow: var(--shadow-strong);
+}
+
+.eventos-photo-media::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(251, 247, 244, 0.28);
+  top: -72px;
+  right: -48px;
+}
+
 .section--organic-home {
   position: relative;
   overflow: hidden;
@@ -737,6 +779,10 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body[data-page="tatuajes"] .card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .team-grid {
@@ -866,6 +912,11 @@ body[data-page="maquillaje"] .layout-two {
   padding: 0;
 }
 
+body[data-page="tatuajes-eliminacion"] .eliminacion-faq {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+
 .content-box h2,
 .meta-box h3 {
   font-family: var(--serif);
@@ -874,6 +925,56 @@ body[data-page="maquillaje"] .layout-two {
 
 .content-box p + p {
   margin-top: 0.8rem;
+}
+
+.belly-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.belly-tile {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  border-radius: 1.5rem;
+  background: var(--oat);
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+}
+
+.belly-tile h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.48rem, 2vw, 1.86rem);
+  line-height: 1.18;
+  margin-bottom: 0;
+}
+
+.belly-tile p,
+.belly-tile li {
+  font-size: clamp(1rem, 1.08vw, 1.08rem);
+  line-height: 1.72;
+}
+
+.belly-tile .reasons-list {
+  margin: 0;
+}
+
+.belly-tiles-actions {
+  margin-top: 1.3rem;
+}
+
+.content-box--wide {
+  padding-right: 0;
+}
+
+.content-box--wide > :not(.steps-list):not(.hero-actions) {
+  max-width: 72ch;
+}
+
+.moda-tiles {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
 }
 
 .longform-stack {
@@ -906,6 +1007,10 @@ body[data-page="maquillaje"] .layout-two {
   gap: 0;
 }
 
+.micro-accordion--cards {
+  gap: 1rem;
+}
+
 .micro-topic {
   --micro-topic-bg: var(--oat);
   --micro-title-color: var(--charcoal);
@@ -922,12 +1027,27 @@ body[data-page="maquillaje"] .layout-two {
   border-bottom: 1px solid rgba(163, 147, 130, 0.18);
 }
 
+.micro-accordion--cards .micro-topic {
+  margin-inline: 0;
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.micro-accordion--cards .micro-topic:last-child {
+  border-bottom: none;
+}
+
 .micro-topic::before {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--micro-topic-bg);
   z-index: -1;
+}
+
+.micro-accordion--cards .micro-topic::before {
+  border-radius: inherit;
 }
 
 .micro-topic--tone-mocha {
@@ -960,6 +1080,12 @@ body[data-page="maquillaje"] .layout-two {
   --micro-topic-bg: #fbf7f4;
 }
 
+.micro-accordion--cards .micro-topic--tone-taupe {
+  --micro-title-color: rgba(251, 247, 244, 0.96);
+  --micro-text-color: rgba(251, 247, 244, 0.88);
+  --micro-icon-color: rgba(251, 247, 244, 0.92);
+}
+
 body[data-page="micropigmentacion"] .micro-topic#labios {
   border-top-color: transparent;
 }
@@ -984,6 +1110,14 @@ body[data-page="micropigmentacion"] .micro-topic#labios {
   padding-block: clamp(1.05rem, 2vw, 1.5rem);
   padding-inline: max(1.5rem, calc(50vw - 590px));
   cursor: pointer;
+}
+
+.micro-accordion--cards .micro-topic-trigger {
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+body[data-page="maquillaje-moda-tv"] .micro-accordion--cards .micro-topic-trigger {
+  font-size: clamp(1.18rem, 1.75vw, 1.52rem);
 }
 
 .micro-topic-trigger::after {
@@ -1024,8 +1158,22 @@ body[data-page="micropigmentacion"] .micro-topic#labios {
   padding: 0 max(1.5rem, calc(50vw - 590px)) clamp(1.2rem, 2vw, 1.7rem);
 }
 
+.micro-accordion--cards .micro-topic-content {
+  padding: 0 clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 2vw, 1.7rem);
+}
+
 .micro-topic-content > :not(.hero-actions):not(.micro-subtopics-grid) {
   max-width: 72ch;
+}
+
+.micro-accordion--cards .micro-topic-content > :not(.hero-actions):not(.micro-subtopics-grid) {
+  max-width: none;
+}
+
+body[data-page="maquillaje-moda-tv"] .micro-accordion--cards .micro-topic--tone-taupe.is-open {
+  --micro-title-color: var(--milk);
+  --micro-text-color: #fff;
+  --micro-icon-color: var(--milk);
 }
 
 .micro-topic p {
@@ -1123,6 +1271,24 @@ body[data-page="micropigmentacion"] .micro-topic#labios {
   color: rgba(35, 35, 35, 0.9);
 }
 
+.eventos-photo-copy {
+  align-self: start;
+}
+
+.eventos-photo-copy > :not(.hero-actions) {
+  max-width: 68ch;
+}
+
+.eventos-process .hero-actions {
+  margin-top: 1.3rem;
+}
+
+body[data-page="maquillaje-eventos"] .section--eventos-photo .content-box h2,
+body[data-page="maquillaje-eventos"] .eventos-process h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  line-height: 1.14;
+}
+
 .meta-list {
   list-style: none;
   display: grid;
@@ -1172,6 +1338,43 @@ body[data-page="micropigmentacion"] .micro-topic#labios {
 
 .steps-list p {
   color: rgba(35, 35, 35, 0.82);
+}
+
+.steps-list--eventos {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+  width: 100%;
+  max-width: none;
+}
+
+.steps-list--eventos li {
+  display: flex;
+  min-height: 100%;
+  border-radius: 1.3rem;
+  background: var(--taupe);
+  padding: 1.25rem;
+}
+
+.steps-list--eventos li > div {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.steps-list--eventos h3 {
+  display: flex;
+  align-items: flex-start;
+  min-height: 2.8em;
+  margin-bottom: 0;
+  color: var(--milk);
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.steps-list--eventos p {
+  color: rgba(251, 247, 244, 0.9);
 }
 
 body[data-page="maquillaje"] .steps-list {
@@ -1598,6 +1801,19 @@ body[data-page="maquillaje"] .cta-strip {
     padding-right: 30%;
   }
 
+  .section > .container > .content-box.content-box--wide:not(.faq-box) {
+    padding-right: 0;
+  }
+
+  .moda-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .belly-tiles {
+    align-items: start;
+  }
+
   .topbar {
     grid-template-columns: auto auto;
     justify-content: space-between;
@@ -1939,6 +2155,10 @@ body[data-page="maquillaje"] .cta-strip {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
+  .container.container--hero-width {
+    width: calc(100% - 1rem);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1965,11 +2185,32 @@ body[data-page="maquillaje"] .cta-strip {
   body[data-page="maquillaje"] .steps-list {
     grid-template-columns: 1fr;
   }
+
+  .steps-list--eventos {
+    grid-template-columns: 1fr;
+  }
+
+  .eventos-split {
+    grid-template-columns: 1fr;
+  }
+
+  .eventos-photo-media {
+    min-height: 320px;
+    order: -1;
+  }
+
+  .belly-tiles {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 520px) {
   .container {
     width: min(1180px, calc(100% - 1.2rem));
+  }
+
+  .container.container--hero-width {
+    width: calc(100% - 0.6rem);
   }
 
   .micro-topic-trigger {
