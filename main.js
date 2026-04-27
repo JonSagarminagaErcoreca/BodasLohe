@@ -472,6 +472,11 @@ const initMicroAccordion = () => {
 
       closeItems({ except: owner });
       setMicroItemState(owner, true);
+      const scrollOwnerToTitle = () => {
+        owner.scrollIntoView({ block: "start", inline: "nearest" });
+      };
+      requestAnimationFrame(scrollOwnerToTitle);
+      window.setTimeout(scrollOwnerToTitle, 280);
     };
 
     openItemFromHash();
@@ -480,6 +485,192 @@ const initMicroAccordion = () => {
 };
 
 initMicroAccordion();
+
+const initMobileGalleries = () => {
+  document.querySelectorAll("[data-mobile-gallery]").forEach((gallery) => {
+    const track = gallery.querySelector("[data-mobile-gallery-track]");
+    const slides = [...gallery.querySelectorAll("[data-mobile-gallery-slide]")];
+    const dots = [...gallery.querySelectorAll("[data-mobile-gallery-dot]")];
+
+    if (!track || slides.length === 0 || dots.length === 0) {
+      return;
+    }
+
+    const getClosestSlideIndex = (scrollTrack, scrollSlides) => {
+      const trackLeft = scrollTrack.getBoundingClientRect().left;
+      return scrollSlides.reduce(
+        (closest, slide, index) => {
+          const distance = Math.abs(slide.getBoundingClientRect().left - trackLeft);
+          return distance < closest.distance ? { index, distance } : closest;
+        },
+        { index: 0, distance: Number.POSITIVE_INFINITY }
+      ).index;
+    };
+
+    const setActiveDot = (index) => {
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle("is-active", active);
+        dot.toggleAttribute("aria-current", active);
+      });
+    };
+
+    let pendingFrame = false;
+    track.addEventListener(
+      "scroll",
+      () => {
+        if (pendingFrame) {
+          return;
+        }
+
+        pendingFrame = true;
+        window.requestAnimationFrame(() => {
+          setActiveDot(getClosestSlideIndex(track, slides));
+          pendingFrame = false;
+        });
+      },
+      { passive: true }
+    );
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        slides[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      });
+    });
+
+    setActiveDot(0);
+
+    const galleryImages = slides
+      .map((slide) => slide.querySelector("img"))
+      .filter(Boolean)
+      .map((image) => ({ src: image.currentSrc || image.src, alt: image.alt || "" }));
+
+    if (galleryImages.length === 0) {
+      return;
+    }
+
+    const viewer = document.createElement("div");
+    viewer.className = "mobile-gallery-viewer";
+    viewer.setAttribute("aria-hidden", "true");
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "mobile-gallery-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Cerrar galeria");
+    closeButton.textContent = "X";
+
+    const viewerTrack = document.createElement("div");
+    viewerTrack.className = "mobile-gallery-track";
+
+    const viewerDots = document.createElement("div");
+    viewerDots.className = "mobile-gallery-dots";
+    viewerDots.setAttribute("aria-label", "Seleccionar imagen ampliada");
+
+    const viewerSlides = galleryImages.map((image, index) => {
+      const figure = document.createElement("figure");
+      figure.className = "mobile-gallery-slide";
+
+      const fullImage = document.createElement("img");
+      fullImage.src = image.src;
+      fullImage.alt = image.alt;
+      fullImage.loading = "lazy";
+
+      const dot = document.createElement("button");
+      dot.className = "mobile-gallery-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Ver imagen ampliada ${index + 1}`);
+
+      dot.addEventListener("click", () => {
+        figure.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      });
+
+      figure.appendChild(fullImage);
+      viewerTrack.appendChild(figure);
+      viewerDots.appendChild(dot);
+
+      return figure;
+    });
+
+    const viewerDotNodes = [...viewerDots.querySelectorAll(".mobile-gallery-dot")];
+    const setActiveViewerDot = (index) => {
+      viewerDotNodes.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle("is-active", active);
+        dot.toggleAttribute("aria-current", active);
+      });
+    };
+
+    let lastOpenedIndex = 0;
+    const openViewer = (index) => {
+      lastOpenedIndex = index;
+      viewer.classList.add("is-open");
+      viewer.setAttribute("aria-hidden", "false");
+      document.body.classList.add("gallery-viewer-open");
+      setActiveViewerDot(index);
+
+      window.requestAnimationFrame(() => {
+        viewerSlides[index]?.scrollIntoView({ block: "nearest", inline: "start" });
+        closeButton.focus({ preventScroll: true });
+      });
+    };
+
+    const closeViewer = () => {
+      viewer.classList.remove("is-open");
+      viewer.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gallery-viewer-open");
+      slides[lastOpenedIndex]?.focus({ preventScroll: true });
+    };
+
+    let pendingViewerFrame = false;
+    viewerTrack.addEventListener(
+      "scroll",
+      () => {
+        if (pendingViewerFrame) {
+          return;
+        }
+
+        pendingViewerFrame = true;
+        window.requestAnimationFrame(() => {
+          setActiveViewerDot(getClosestSlideIndex(viewerTrack, viewerSlides));
+          pendingViewerFrame = false;
+        });
+      },
+      { passive: true }
+    );
+
+    closeButton.addEventListener("click", closeViewer);
+    viewer.addEventListener("click", (event) => {
+      if (event.target === viewer) {
+        closeViewer();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && viewer.classList.contains("is-open")) {
+        closeViewer();
+      }
+    });
+
+    viewer.append(closeButton, viewerTrack, viewerDots);
+    document.body.appendChild(viewer);
+
+    slides.forEach((slide, index) => {
+      slide.setAttribute("role", "button");
+      slide.setAttribute("tabindex", "0");
+      slide.setAttribute("aria-label", `Ver imagen ${index + 1} ampliada`);
+
+      slide.addEventListener("click", () => openViewer(index));
+      slide.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openViewer(index);
+        }
+      });
+    });
+  });
+};
+
+initMobileGalleries();
 
 const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const shapeBlurNodes = [...document.querySelectorAll("[data-shape-blur]")];

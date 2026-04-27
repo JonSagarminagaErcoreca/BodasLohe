@@ -386,7 +386,9 @@ main {
 
 .hero--home {
   min-height: 75vh;
-  background: var(--milk);
+  background:
+    linear-gradient(90deg, rgba(35, 35, 35, 0.62) 0%, rgba(35, 35, 35, 0.34) 48%, rgba(35, 35, 35, 0.16) 100%),
+    url("assets/img/hero-2400.jpg") center / cover no-repeat;
 }
 
 .hero--home::before {
@@ -429,9 +431,27 @@ body[data-page="home"] .hero--home::after {
   color: var(--mocha);
 }
 
+body[data-page="home"] .hero--home .hero-copy--lead,
+body[data-page="home"] .hero--home .hero-title,
+body[data-page="home"] .hero--home .hero-copy {
+  color: var(--milk);
+  text-shadow: 0 2px 18px rgba(35, 35, 35, 0.34);
+}
+
+body[data-page="sobre-lohe"] .hero--home {
+  background:
+    linear-gradient(90deg, rgba(35, 35, 35, 0.64) 0%, rgba(35, 35, 35, 0.38) 48%, rgba(35, 35, 35, 0.18) 100%),
+    url("assets/img/AlbayNora.png") center / cover no-repeat;
+}
+
+body[data-page="sobre-lohe"] .hero--home .hero-shape-blur {
+  display: none;
+}
+
 body[data-page="sobre-lohe"] .hero--home .hero-title,
 body[data-page="sobre-lohe"] .hero--home .hero-copy {
-  color: var(--charcoal);
+  color: var(--milk);
+  text-shadow: 0 2px 18px rgba(35, 35, 35, 0.34);
 }
 
 .hero-shape-blur {
@@ -485,6 +505,30 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
 
 .hero--micro {
   background-image: url("assets/img/IMG_5010.jpeg");
+}
+
+body[data-page="tatuajes"] .hero--micro .hero-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+body[data-page="tatuajes"] .hero--micro .hero-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(90deg, rgba(35, 35, 35, 0.68) 0%, rgba(35, 35, 35, 0.42) 52%, rgba(35, 35, 35, 0.22) 100%),
+    url("assets/img/IMG_5010.jpeg") center / cover no-repeat;
+  z-index: 0;
+}
+
+body[data-page="tatuajes"] .hero--micro .hero-inner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero--academy {
@@ -618,16 +662,16 @@ body[data-page="maquillaje"] .hero--makeup .hero-copy {
 }
 
 .button--secondary {
-  border-color: rgba(104, 93, 84, 0.45);
+  border-color: var(--oat);
   background: transparent;
-  color: var(--charcoal);
+  color: var(--oat);
 }
 
 .button--secondary:hover,
 .button--secondary:focus-visible {
   background: transparent;
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--oat);
+  color: var(--oat);
 }
 
 .button--light {
@@ -795,6 +839,88 @@ body[data-page="tatuajes"] .card-grid {
 .team-note {
   margin-top: 1rem;
   color: var(--mocha);
+}
+
+.team-profile {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.team-profile-media {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--oat);
+}
+
+.team-profile-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-profile--nohora .team-profile-media img {
+  object-position: 37% 34%;
+}
+
+.team-profile--alba .team-profile-media img {
+  object-position: 63% 32%;
+}
+
+.team-profile-copy {
+  display: grid;
+  gap: 0.72rem;
+  padding: 1.2rem;
+}
+
+.team-profile-copy h3 {
+  margin-bottom: 0;
+}
+
+.team-profile-copy p {
+  margin: 0;
+}
+
+.team-linkedin {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  margin-top: 0.2rem;
+  color: var(--mocha);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.linkedin-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 1px solid rgba(104, 93, 84, 0.4);
+  border-radius: 0.28rem;
+  color: var(--mocha);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.team-linkedin:hover,
+.team-linkedin:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.team-linkedin:hover .linkedin-mark,
+.team-linkedin:focus-visible .linkedin-mark {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .card {
@@ -1336,6 +1462,10 @@ body[data-page="maquillaje-eventos"] .eventos-process h2 {
   margin-bottom: 0.32rem;
 }
 
+.steps-list .step-number::after {
+  content: " \00B7 ";
+}
+
 .steps-list p {
   color: rgba(35, 35, 35, 0.82);
 }
@@ -1648,6 +1778,14 @@ body[data-page="maquillaje"] .cta-strip {
   display: grid;
   gap: 1rem;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.makeup-extra-mobile {
+  display: none;
+}
+
+.wedding-gallery-mobile {
+  display: none;
 }
 
 .contact-panel {
@@ -1980,13 +2118,83 @@ body[data-page="maquillaje"] .cta-strip {
     overflow: hidden;
   }
 
+  .site-header {
+    background: rgba(251, 247, 244, 0.52);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: none;
+  }
+
+  body[data-page="sobre-lohe"] .site-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
   .container {
     width: min(1180px, calc(100% - 2rem));
   }
 
-  .micro-topic-trigger,
+  .section {
+    padding-inline: 2rem;
+  }
+
+  .section > .container,
+  .section > .container.container--hero-width {
+    width: 100%;
+  }
+
+  .micro-topic-trigger {
+    font-size: 1.2rem;
+    padding-inline: 2rem;
+  }
+
   .micro-topic-content {
-    padding-inline: 1rem;
+    padding-inline: 2rem;
+  }
+
+  .micro-accordion--cards .micro-topic-trigger {
+    font-size: 1.2rem;
+    padding-inline: 2rem;
+  }
+
+  body[data-page="maquillaje-moda-tv"] .micro-accordion--cards .micro-topic-trigger {
+    font-size: 1.2rem;
+  }
+
+  .micro-accordion--cards .micro-topic-content {
+    padding-inline: 2rem;
+  }
+
+  body[data-page="maquillaje"] .hero--makeup .button--secondary,
+  body[data-page="maquillaje"] .hero--makeup .button--secondary:hover,
+  body[data-page="maquillaje"] .hero--makeup .button--secondary:focus-visible {
+    border-color: var(--mocha);
+    color: var(--mocha);
+  }
+
+  .section:not(.section--soft):not(.section--oat):not(.section--organic-home) .button--secondary:not(.micro-topic--tone-mocha .button--secondary):not(.micro-topic--tone-taupe .button--secondary),
+  .micro-topic--tone-milk .button--secondary {
+    border-color: var(--mocha);
+    color: var(--mocha);
+  }
+
+  .section:not(.section--soft):not(.section--oat):not(.section--organic-home) .button--secondary:not(.micro-topic--tone-mocha .button--secondary):not(.micro-topic--tone-taupe .button--secondary):hover,
+  .section:not(.section--soft):not(.section--oat):not(.section--organic-home) .button--secondary:not(.micro-topic--tone-mocha .button--secondary):not(.micro-topic--tone-taupe .button--secondary):focus-visible,
+  .micro-topic--tone-milk .button--secondary:hover,
+  .micro-topic--tone-milk .button--secondary:focus-visible {
+    border-color: var(--mocha);
+    color: var(--mocha);
+  }
+
+  .micro-topic--tone-mocha .button--secondary,
+  .micro-topic--tone-taupe .button--secondary,
+  .micro-topic--tone-mocha .button--secondary:hover,
+  .micro-topic--tone-mocha .button--secondary:focus-visible,
+  .micro-topic--tone-taupe .button--secondary:hover,
+  .micro-topic--tone-taupe .button--secondary:focus-visible {
+    border-color: rgba(251, 247, 244, 0.72);
+    color: var(--milk);
   }
 
   .micro-subtopics-grid {
@@ -2020,7 +2228,7 @@ body[data-page="maquillaje"] .cta-strip {
     padding: 0 1rem;
     background: rgba(251, 247, 244, 0.97);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(163, 147, 130, 0.28);
+    border-bottom: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.28s ease, padding 0.28s ease;
@@ -2156,6 +2364,18 @@ body[data-page="maquillaje"] .cta-strip {
     grid-template-columns: 1fr;
   }
 
+  body[data-page="contacto"] .contact-grid {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  body[data-page="contacto"] .contact-grid .contact-panel:first-child {
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+
   .container.container--hero-width {
     width: calc(100% - 1rem);
   }
@@ -2171,27 +2391,609 @@ body[data-page="maquillaje"] .cta-strip {
   }
 
   .section {
-    padding: 2.7rem 0;
+    padding-block: 2.7rem;
+  }
+
+  .section--flush-bottom {
+    padding-bottom: 0;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
   }
 
+  body[data-page="home"] #servicios {
+    background: rgba(229, 222, 210, 0.54);
+    padding-inline: 0;
+  }
+
+  body[data-page="home"] #servicios .section-heading {
+    padding-inline: 2rem;
+  }
+
+  body[data-page="home"] #servicios .card-grid {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-inline: 0;
+    scroll-padding-inline: 2rem;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  body[data-page="home"] #servicios .card-grid::before,
+  body[data-page="home"] #servicios .card-grid::after {
+    content: "";
+    flex: 0 0 2rem;
+  }
+
+  body[data-page="home"] #servicios .card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] #servicios .card {
+    flex: 0 0 clamp(15.5rem, 74vw, 20rem);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 22rem;
+    margin-right: 1rem;
+    background: var(--card-image) center / cover no-repeat;
+    color: var(--milk);
+    scroll-snap-align: start;
+  }
+
+  body[data-page="home"] #servicios .card:last-child {
+    margin-right: 0;
+  }
+
+  body[data-page="home"] #servicios .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.48);
+  }
+
+  body[data-page="home"] #servicios .card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  body[data-page="home"] #servicios .card h3,
+  body[data-page="home"] #servicios .card p,
+  body[data-page="home"] #servicios .card .card-link-copy {
+    color: var(--milk);
+  }
+
+  body[data-page="home"] #servicios .card h3 {
+    color: var(--oat);
+  }
+
+  body[data-page="home"] #servicios .card .card-link-copy {
+    color: var(--taupe);
+  }
+
+  body[data-page="home"] #servicios .card .card-link-copy::before {
+    color: var(--taupe);
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(1) {
+    --card-image: url("assets/img/IMG_5008.jpeg");
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(2) {
+    --card-image: url("assets/img/IMG_5010.jpeg");
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(3) {
+    --card-image: url("assets/img/IMG_5571.JPG");
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(4) {
+    --card-image: url("assets/img/p+i_alejandrobergado-125 copia.JPG");
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(5) {
+    --card-image: url("assets/img/PHOTO-2026-01-27-20-04-12.jpg");
+  }
+
+  body[data-page="home"] #servicios .card:nth-child(6) {
+    --card-image: url("assets/img/AlbayNora.png");
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje {
+    padding-inline: 0;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .section-heading {
+    padding-inline: 2rem;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card-grid {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-inline: 0;
+    scroll-padding-inline: 2rem;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card-grid::before,
+  body[data-page="maquillaje"] #servicios-maquillaje .card-grid::after {
+    content: "";
+    flex: 0 0 2rem;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card {
+    flex: 0 0 clamp(15.5rem, 74vw, 20rem);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 22rem;
+    margin-right: 1rem;
+    background: var(--card-image) center / cover no-repeat;
+    color: var(--milk);
+    scroll-snap-align: start;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card:last-child {
+    margin-right: 0;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.48);
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card h3,
+  body[data-page="maquillaje"] #servicios-maquillaje .card p,
+  body[data-page="maquillaje"] #servicios-maquillaje .card .card-link-copy {
+    color: var(--milk);
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card h3 {
+    color: var(--oat);
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card .card-link-copy,
+  body[data-page="maquillaje"] #servicios-maquillaje .card .card-link-copy::before {
+    color: var(--taupe);
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card:nth-child(1) {
+    --card-image: url("assets/img/IMG_5008.jpeg");
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card:nth-child(2) {
+    --card-image: url("assets/img/IMG_5571.JPG");
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card:nth-child(3) {
+    --card-image: url("assets/img/AlbayNora.png");
+  }
+
+  body[data-page="maquillaje"] #servicios-maquillaje .card:nth-child(4) {
+    --card-image: url("assets/img/p+i_alejandrobergado-125 copia.JPG");
+  }
+
+  body[data-page="maquillaje"] .makeup-extra-desktop {
+    display: none;
+  }
+
+  body[data-page="maquillaje"] .makeup-extra-mobile {
+    display: block;
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic {
+    width: 100%;
+    margin-inline: 0;
+    border: 1px solid rgba(104, 93, 84, 0.18);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--milk);
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic:last-child {
+    border-bottom: 1px solid rgba(104, 93, 84, 0.18);
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic::before {
+    display: none;
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic--tone-oat {
+    background: rgba(229, 222, 210, 0.52);
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic-trigger {
+    padding: 1.05rem 1.15rem;
+    color: var(--charcoal);
+    font-size: 1.22rem;
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic-trigger::after {
+    color: var(--mocha);
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic-content {
+    padding: 0 1.15rem 1.2rem;
+  }
+
+  body[data-page="maquillaje"] .makeup-clean-accordion .micro-topic p {
+    color: rgba(35, 35, 35, 0.82);
+  }
+
+  body[data-page="maquillaje-novias"] .wedding-gallery-mobile {
+    display: block;
+    padding-inline: 0;
+    background: rgba(229, 222, 210, 0.36);
+  }
+
+  body[data-page="maquillaje-novias"] .wedding-gallery-mobile .section-heading {
+    padding-inline: 2rem;
+  }
+
+  .wedding-gallery {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .wedding-gallery-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-inline: 0;
+    scroll-padding-inline: 2rem;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .wedding-gallery-track::before,
+  .wedding-gallery-track::after {
+    content: "";
+    flex: 0 0 2rem;
+  }
+
+  .wedding-gallery-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wedding-gallery-slide {
+    position: relative;
+    flex: 0 0 clamp(15.5rem, 74vw, 20rem);
+    aspect-ratio: 4 / 5;
+    margin: 0 1rem 0 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--oat);
+    scroll-snap-align: start;
+    cursor: zoom-in;
+  }
+
+  .wedding-gallery-slide:focus-visible {
+    outline: 2px solid var(--mocha);
+    outline-offset: 3px;
+  }
+
+  .wedding-gallery-slide:last-child {
+    margin-right: 0;
+  }
+
+  .wedding-gallery-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(35, 35, 35, 0.04), rgba(35, 35, 35, 0.24));
+    pointer-events: none;
+  }
+
+  .wedding-gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wedding-gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.16rem;
+    padding-inline: 2rem;
+  }
+
+  .wedding-gallery-dot {
+    display: inline-grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .wedding-gallery-dot::before {
+    content: "";
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: rgba(104, 93, 84, 0.32);
+  }
+
+  .wedding-gallery-dot.is-active::before {
+    width: 0.86rem;
+    background: var(--mocha);
+  }
+
+  body.gallery-viewer-open {
+    overflow: hidden;
+  }
+
+  .mobile-gallery-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: none;
+    grid-template-rows: 1fr auto;
+    background: rgba(35, 35, 35, 0.94);
+    color: var(--milk);
+  }
+
+  .mobile-gallery-viewer.is-open {
+    display: grid;
+  }
+
+  .mobile-gallery-close {
+    position: fixed;
+    top: max(1rem, env(safe-area-inset-top));
+    right: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 1px solid rgba(251, 247, 244, 0.62);
+    border-radius: 50%;
+    background: rgba(35, 35, 35, 0.22);
+    color: var(--milk);
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .mobile-gallery-close:focus-visible {
+    outline: 2px solid rgba(251, 247, 244, 0.82);
+    outline-offset: 3px;
+  }
+
+  .mobile-gallery-track {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .mobile-gallery-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-gallery-slide {
+    flex: 0 0 100%;
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: max(4.8rem, env(safe-area-inset-top)) 1rem 1rem;
+    scroll-snap-align: start;
+  }
+
+  .mobile-gallery-slide img {
+    width: 100%;
+    max-height: 78dvh;
+    border-radius: 1rem;
+    object-fit: contain;
+  }
+
+  .mobile-gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.16rem;
+    padding: 0.4rem 2rem max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .mobile-gallery-dot {
+    display: inline-grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mobile-gallery-dot::before {
+    content: "";
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: rgba(251, 247, 244, 0.42);
+  }
+
+  .mobile-gallery-dot.is-active::before {
+    width: 0.86rem;
+    background: var(--milk);
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
 
+  body[data-page="sobre-lohe"] .team-grid {
+    gap: 1.2rem;
+  }
+
+  body[data-page="sobre-lohe"] .team-profile {
+    border: 1px solid rgba(104, 93, 84, 0.16);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: none;
+  }
+
+  body[data-page="sobre-lohe"] .team-profile-media {
+    aspect-ratio: 1 / 1;
+  }
+
+  body[data-page="sobre-lohe"] .team-profile-copy {
+    padding: 1.15rem;
+  }
+
   body[data-page="maquillaje"] .steps-list {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  body[data-page="maquillaje"] .steps-list li {
+    display: block;
+    min-height: auto;
+    border-top: 1px solid rgba(104, 93, 84, 0.22);
+    border-radius: 0;
+    background: transparent;
+    padding: 1.15rem 0;
+  }
+
+  body[data-page="maquillaje"] .steps-list li:last-child {
+    border-bottom: 1px solid rgba(104, 93, 84, 0.22);
+  }
+
+  body[data-page="maquillaje"] .steps-list li > div {
+    display: block;
+  }
+
+  body[data-page="maquillaje"] .steps-list h3 {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.82rem;
+    align-items: start;
+    color: var(--charcoal);
+    font-family: var(--serif);
+    font-size: 1.28rem;
+    line-height: 1.16;
+  }
+
+  body[data-page="maquillaje"] .steps-list .step-number {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(104, 93, 84, 0.32);
+    border-radius: 50%;
+    color: var(--mocha);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  body[data-page="maquillaje"] .steps-list .step-number::after {
+    content: "";
+  }
+
+  body[data-page="maquillaje"] .steps-list p {
+    margin-top: 0.58rem;
+    margin-left: 2.82rem;
+    color: rgba(35, 35, 35, 0.74);
   }
 
   .steps-list--eventos {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .steps-list--eventos li {
+    display: block;
+    min-height: auto;
+    border-top: 1px solid rgba(104, 93, 84, 0.22);
+    border-radius: 0;
+    background: transparent;
+    padding: 1.15rem 0;
+  }
+
+  .steps-list--eventos li:last-child {
+    border-bottom: 1px solid rgba(104, 93, 84, 0.22);
+  }
+
+  .steps-list--eventos li > div {
+    display: block;
+  }
+
+  .steps-list--eventos h3 {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.82rem;
+    align-items: start;
+    min-height: 0;
+    color: var(--charcoal);
+    font-family: var(--serif);
+    font-size: 1.28rem;
+    line-height: 1.16;
+  }
+
+  .steps-list--eventos .step-number {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(104, 93, 84, 0.32);
+    border-radius: 50%;
+    color: var(--mocha);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .steps-list--eventos .step-number::after {
+    content: "";
+  }
+
+  .steps-list--eventos p {
+    margin-top: 0.58rem;
+    margin-left: 2.82rem;
+    color: rgba(35, 35, 35, 0.74);
   }
 
   .eventos-split {
     grid-template-columns: 1fr;
+  }
+
+  body[data-page="maquillaje-eventos"] .eventos-photo-media {
+    display: none;
   }
 
   .eventos-photo-media {
@@ -2201,6 +3003,39 @@ body[data-page="maquillaje"] .cta-strip {
 
   .belly-tiles {
     grid-template-columns: 1fr;
+  }
+
+  body[data-page="belly-painting"] .belly-tiles {
+    gap: 1.25rem;
+  }
+
+  body[data-page="belly-painting"] .belly-tile {
+    box-shadow: none;
+  }
+
+  body[data-page="belly-painting"] .belly-tile:first-child {
+    gap: 0.8rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    padding: 1.35rem 0;
+  }
+
+  body[data-page="belly-painting"] .belly-tile:first-child h2 {
+    color: var(--mocha);
+  }
+
+  body[data-page="belly-painting"] .belly-tile:nth-child(2) {
+    border: 0;
+    border-radius: 1rem;
+    background: rgba(229, 222, 210, 0.7);
+    padding: 1.35rem;
+  }
+
+  body[data-page="belly-painting"] .belly-tile:nth-child(2) .reasons-list {
+    gap: 0.7rem;
+    padding-left: 1.05rem;
   }
 }
 
@@ -2214,12 +3049,12 @@ body[data-page="maquillaje"] .cta-strip {
   }
 
   .micro-topic-trigger {
-    padding-inline: 0.6rem;
+    padding-inline: 2rem;
     padding-block: 0.9rem;
   }
 
   .micro-topic-content {
-    padding-inline: 0.6rem;
+    padding-inline: 2rem;
     padding-bottom: 1rem;
   }
 
