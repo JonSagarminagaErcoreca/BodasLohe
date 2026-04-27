@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Maquillaje para eventos</title>
+    <meta
+      name="description"
+      content="Maquillaje para eventos en LOHE: propuesta elegante y duradera adaptada a horario, vestuario, luz y estilo personal."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="maquillaje-eventos">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--makeup">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Maquillaje</span>
+            <h1 class="hero-title">Maquillaje para eventos</h1>
+            <p class="hero-copy">
+              Para invitadas, celebraciones o actos profesionales. Definimos intensidad y acabado segun el tipo de evento
+              y su horario para que te veas bien en persona y en fotografia.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="contacto/">Reservar cita</a>
+              <a class="button button--light" href="maquilladora/boda/">Ver novias</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container layout-two">
+          <article class="content-box" data-reveal>
+            <h2>Estetica cuidada, sin sobrecarga</h2>
+            <p>
+              El servicio prioriza equilibrio: piel limpia, correcciones precisas y puntos de intensidad donde aportan.
+              Evitamos acabados pesados que no representen tu estilo.
+            </p>
+            <p>
+              Nos adaptamos a agendas de manana, tarde y noche, y proponemos variantes segun protocolo, vestuario y tipo
+              de iluminacion.
+            </p>
+            <div class="tag-row" style="margin-top: 1rem">
+              <span class="tag">Invitadas</span>
+              <span class="tag">Eventos sociales</span>
+              <span class="tag">Corporativo</span>
+            </div>
+          </article>
+          <aside class="meta-box" data-reveal>
+            <h3>Parametros del servicio</h3>
+            <ul class="meta-list">
+              <li>
+                <span class="meta-label">Duracion media</span>
+                <span class="meta-value">45-60 minutos</span>
+              </li>
+              <li>
+                <span class="meta-label">Acabado</span>
+                <span class="meta-value">Natural, pulido o sofisticado</span>
+              </li>
+              <li>
+                <span class="meta-label">Ubicacion</span>
+                <span class="meta-value">En estudio y bajo consulta a domicilio</span>
+              </li>
+              <li>
+                <span class="meta-label">Sugerencia LOHE</span>
+                <span class="meta-value">Reserva con antelacion para horarios punta</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <span class="section-kicker">Proceso</span>
+            <h2 class="section-title">Ritual rapido y efectivo</h2>
+          </div>
+          <ol class="timeline">
+            <li data-reveal>
+              <div>
+                <h3>Brief express</h3>
+                <p>Objetivo del look, tiempo disponible y preferencias de intensidad.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Preparacion de piel</h3>
+                <p>Hidratacion y textura base para un acabado uniforme y de larga duracion.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Construccion de maquillaje</h3>
+                <p>Correccion de tono, enfoque en mirada o labio, sellado y equilibrio final.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Salida</h3>
+                <p>Mini guia de retoque para mantener el look hasta el final del evento.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-strip" data-reveal>
+            <div>
+              <h2>Quieres un look con presencia y sin exceso?</h2>
+              <p>Te proponemos una version fiel a tu estilo y al tipo de evento que tengas.</p>
+            </div>
+            <a class="button" href="contacto/">Solicitar cita</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+

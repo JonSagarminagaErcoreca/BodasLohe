@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+    <title>LOHE Estudio | Dise&ntilde;o de cejas</title>
+    <meta
+      name="description"
+      content="Dise&ntilde;o, depilaci&oacute;n y laminado de cejas en LOHE con enfoque natural, personalizado y respetuoso con tu expresi&oacute;n."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="servicios-esteticos-cejas">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--micro">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Servicios est&eacute;ticos</span>
+            <h1 class="hero-title">Dise&ntilde;o de cejas</h1>
+            <p class="hero-copy">
+              El dise&ntilde;o de cejas puede cambiar much&iacute;simo la expresi&oacute;n del rostro, a veces sin que nos
+              demos cuenta. No se trata solo de depilar, sino de dar forma y equilibrio para que las cejas encajen con tus
+              facciones y con c&oacute;mo te gusta verte.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container longform-stack">
+          <article class="content-box" data-reveal>
+            <p>
+              Antes de empezar, miramos tu rostro con detalle y vemos qu&eacute; forma puede favorecerte m&aacute;s.
+              Ajustamos el dise&ntilde;o teniendo en cuenta tu tipo de ceja, la densidad, el crecimiento natural y el
+              resultado que buscas. La idea es que el cambio se note, pero que siga pareciendo tuyo.
+            </p>
+            <p>
+              Trabajamos el dise&ntilde;o y depilaci&oacute;n de cejas de forma personalizada, cuidando el trazo y el acabado
+              para que el resultado sea limpio, natural y f&aacute;cil de mantener en el d&iacute;a a d&iacute;a.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="contacto/">Reserva tu cita</a>
+              <a class="button button--secondary" href="contacto/">Contactar</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container container--hero-width">
+          <div class="micro-accordion micro-accordion--cards moda-tiles" data-micro-accordion>
+            <article id="depilacion-cejas" class="micro-topic micro-topic--tone-taupe" data-reveal data-micro-item>
+              <h2 class="micro-topic-heading">
+                <button
+                  class="micro-topic-trigger"
+                  type="button"
+                  data-micro-trigger
+                  id="micro-trigger-depilacion-cejas"
+                  aria-expanded="false"
+                  aria-controls="micro-panel-depilacion-cejas"
+                >
+                  Depilaci&oacute;n de cejas
+                </button>
+              </h2>
+              <div
+                class="micro-topic-panel"
+                id="micro-panel-depilacion-cejas"
+                data-micro-panel
+                role="region"
+                aria-labelledby="micro-trigger-depilacion-cejas"
+              >
+                <div class="micro-topic-panel-inner">
+                  <div class="micro-topic-content">
+                    <p>
+                      La depilaci&oacute;n de cejas no es solo quitar pelo. Es mantener la forma, limpiar el contorno y
+                      asegurarnos de que tus cejas sigan favoreci&eacute;ndote con el paso de las semanas.
+                    </p>
+                    <p>
+                      Trabajamos la depilaci&oacute;n y dise&ntilde;o de cejas respetando siempre tu forma natural. No
+                      buscamos cambiar tus cejas por completo, sino ordenarlas y darles estructura para que el resultado se vea
+                      limpio y equilibrado.
+                    </p>
+                    <p>
+                      Es un servicio ideal tanto si ya tienes un dise&ntilde;o definido y quieres mantenerlo, como si
+                      necesitas volver a dar forma a tus cejas despu&eacute;s de un tiempo sin trabajarlas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article id="laminado-cejas" class="micro-topic micro-topic--tone-taupe" data-reveal data-micro-item>
+              <h2 class="micro-topic-heading">
+                <button
+                  class="micro-topic-trigger"
+                  type="button"
+                  data-micro-trigger
+                  id="micro-trigger-laminado-cejas"
+                  aria-expanded="false"
+                  aria-controls="micro-panel-laminado-cejas"
+                >
+                  Laminado de cejas
+                </button>
+              </h2>
+              <div
+                class="micro-topic-panel"
+                id="micro-panel-laminado-cejas"
+                data-micro-panel
+                role="region"
+                aria-labelledby="micro-trigger-laminado-cejas"
+              >
+                <div class="micro-topic-panel-inner">
+                  <div class="micro-topic-content">
+                    <p>
+                      El laminado de cejas es un tratamiento pensado para ordenar y fijar el pelo de la ceja, d&aacute;ndole
+                      un aspecto m&aacute;s definido y peinado durante semanas. Es ideal si tienes las cejas rebeldes, con
+                      huecos o con el pelo que crece en distintas direcciones.
+                    </p>
+                    <p>
+                      Con el laminado conseguimos un efecto m&aacute;s estructurado y uniforme, sin necesidad de maquillarlas a
+                      diario. El resultado puede ser m&aacute;s natural o m&aacute;s marcado, seg&uacute;n c&oacute;mo te guste
+                      llevarlas, pero siempre adaptado a tu forma y a tu estilo.
+                    </p>
+                    <p>
+                      Es una buena opci&oacute;n si quieres que tus cejas se vean m&aacute;s llenas, m&aacute;s definidas y
+                      f&aacute;ciles de mantener en tu d&iacute;a a d&iacute;a.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="content-box faq-box" data-reveal>
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-list">
+              <article class="faq-item">
+                <h3>&iquest;Cu&aacute;l es la diferencia entre dise&ntilde;o y depilaci&oacute;n de cejas?</h3>
+                <p>
+                  La depilaci&oacute;n limpia y mantiene la forma de la ceja, mientras que el dise&ntilde;o va un paso
+                  m&aacute;s all&aacute;: estudiamos tu rostro y definimos una forma que te favorezca antes de depilar.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Cada cu&aacute;nto tiempo deber&iacute;a hacerme la depilaci&oacute;n de cejas?</h3>
+                <p>
+                  Depende de tu ritmo de crecimiento, pero muchas personas repiten cada 3 &oacute; 4 semanas para mantener la
+                  forma definida.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;El dise&ntilde;o de cejas cambia mucho mi expresi&oacute;n?</h3>
+                <p>
+                  Puede cambiarla, pero de forma natural. El objetivo no es transformar tu rostro, sino equilibrarlo y
+                  resaltar tus facciones.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Qu&eacute; m&eacute;todo utiliz&aacute;is para la depilaci&oacute;n?</h3>
+                <p>
+                  Elegimos el m&eacute;todo m&aacute;s adecuado seg&uacute;n tu piel y tu tipo de ceja, buscando siempre un
+                  acabado limpio y respetuoso con la zona.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;El laminado sustituye al dise&ntilde;o de cejas?</h3>
+                <p>
+                  No exactamente. El laminado ordena y fija el pelo natural, mientras que el dise&ntilde;o trabaja la forma.
+                  En muchos casos pueden complementarse.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Es un tratamiento doloroso?</h3>
+                <p>
+                  La depilaci&oacute;n puede resultar un poco molesta, como cualquier m&eacute;todo de eliminaci&oacute;n de
+                  vello, pero es algo r&aacute;pido y puntual.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Puedo hacerme estos tratamientos si tengo la piel sensible?</h3>
+                <p>
+                  S&iacute;, aunque siempre valoramos tu piel antes de empezar para adaptar el tratamiento y trabajar de forma
+                  cuidadosa.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Necesito alg&uacute;n cuidado despu&eacute;s del tratamiento?</h3>
+                <p>
+                  Recomendamos evitar maquillaje en la zona durante unas horas y no exponer la piel reci&eacute;n tratada al
+                  sol directo. Te explicamos todo al finalizar.
+                </p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>

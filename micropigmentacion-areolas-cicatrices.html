@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Areolas y cicatrices</title>
+    <meta
+      name="description"
+      content="Micropigmentacion de areolas y tratamiento de cicatrices en LOHE con enfoque reparador, sensibilidad y precision tecnica."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="micropigmentacion-areolas-cicatrices">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--micro">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Micropigmentacion</span>
+            <h1 class="hero-title">Areolas y cicatrices</h1>
+            <p class="hero-copy">
+              Servicio especializado de enfoque reparador. Trabajamos con maxima delicadeza para recuperar armonia visual y
+              apoyar procesos personales de reconstruccion y bienestar.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="contacto/">Solicitar consulta privada</a>
+              <a class="button button--light" href="lohe/">Conocer enfoque LOHE</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container layout-two">
+          <article class="content-box" data-reveal>
+            <h2>Reconstruccion estetica respetuosa</h2>
+            <p>
+              Priorizamos escucha, consentimiento informado y expectativas realistas. Cada caso se evalua de forma
+              individual para proponer un plan seguro y coherent.
+            </p>
+            <p>
+              El trabajo de color, forma y textura busca recuperar naturalidad visual en areola y suavizar contrastes en
+              cicatriz, siempre dentro de un enfoque honesto.
+            </p>
+            <div class="tag-row" style="margin-top: 1rem">
+              <span class="tag">AcompaÃ±amiento sensible</span>
+              <span class="tag">Plan individual</span>
+              <span class="tag">Privacidad</span>
+            </div>
+          </article>
+          <aside class="meta-box" data-reveal>
+            <h3>Aspectos importantes</h3>
+            <ul class="meta-list">
+              <li>
+                <span class="meta-label">Consulta inicial</span>
+                <span class="meta-value">Valoracion completa y derivacion si procede</span>
+              </li>
+              <li>
+                <span class="meta-label">Enfoque</span>
+                <span class="meta-value">Reparador, gradual y personalizado</span>
+              </li>
+              <li>
+                <span class="meta-label">Sesion</span>
+                <span class="meta-value">Planificada segun tejido y evolucion</span>
+              </li>
+              <li>
+                <span class="meta-label">Seguimiento</span>
+                <span class="meta-value">Control cercano en recuperacion</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <span class="section-kicker">Protocolo seguro</span>
+            <h2 class="section-title">Como abordamos estos tratamientos</h2>
+          </div>
+          <ol class="timeline">
+            <li data-reveal>
+              <div>
+                <h3>Historia clinica estetica</h3>
+                <p>Analizamos contexto medico-estetico y momento adecuado de intervencion.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>DiseÃ±o previo</h3>
+                <p>Definimos tono y forma con pruebas de aproximacion antes de implantar pigmento.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Aplicacion cuidada</h3>
+                <p>Trabajo por fases para respetar tejido y obtener un resultado armonico.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Revision posterior</h3>
+                <p>Revisamos asentamiento y planificamos ajuste final cuando corresponde.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-strip" data-reveal>
+            <div>
+              <h2>Prefieres una primera consulta confidencial?</h2>
+              <p>Podemos resolver dudas con tiempo y sin presion antes de decidir el tratamiento.</p>
+            </div>
+            <a class="button" href="contacto/">Pedir consulta</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+

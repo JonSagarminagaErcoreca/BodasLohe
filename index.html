@@ -1,409 +1,195 @@
 ﻿<!doctype html>
 <html lang="es">
   <head>
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lohë Studio | Maquillaje y cuidado para bodas</title>
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Home</title>
     <meta
       name="description"
-      content="Maquillaje y cuidado para bodas en Getxo y Bilbao. Una boda al día, acompañamiento completo y calma antes de salir."
+      content="LOHE Estudio de estetica y maquillaje en Getxo: maquillaje, micropigmentacion, tatuaje artistico y formacion en un espacio profesional y cercano."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="assets/img/Logo.png" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="page-glow" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="logo" aria-label="Lohë Studio">
-          <img
-            class="logo-image"
-            src="assets/img/Lohë. Registro marca.png"
-            alt="Lohë Studio"
-            width="406"
-            height="145"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-        <a class="header-cta" href="#waitlist">Lista de espera</a>
-      </div>
-    </header>
+  <body data-page="home">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
 
     <main>
-      <section class="hero" id="inicio">
-        <div class="container hero-content" data-reveal>
-          <p class="eyebrow">Maquillaje y cuidado para bodas</p>
-          <h1>Calma, piel luminosa y un acompañamiento real.</h1>
-          <div class="hero-actions">
-            <a class="button" href="#waitlist" data-modal-trigger="calendar">Últimas fechas 2026</a>
-            <span class="hero-note">Agenda 2027 abierta <strong>SOLO HOY</strong></span>
+      <section class="hero hero--home hero--full">
+        <div
+          class="hero-shape-blur"
+          data-shape-blur
+          data-variation="0"
+          data-pixel-ratio="device"
+          data-shape-size="1.6"
+          data-roundness="0.42"
+          data-border-size="0.04"
+          data-circle-size="0.18"
+          data-circle-edge="1"
+          data-bg-color="transparent"
+          aria-hidden="true"
+        ></div>
+        <div class="hero-inner">
+          <div data-reveal>
+            <h1 class="hero-title">
+              Estudio de est&eacute;tica y maquillaje
+            </h1>
+            <p class="hero-copy">
+              Maquillaje, micropigmentaci&oacute;n, tratamientos est&eacute;ticos y tatuaje art&iacute;stico en un
+              espacio profesional y cercano.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="contacto/">Reservar cita</a>
+              <a class="button button--secondary" href="#servicios">Descubrir servicios</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="filosofia">
-        <div class="container split" data-reveal>
-          <div class="text-block">
-            <h2>No es solo maquillaje. Es calma.</h2>
-            <p>
-              En Loh&euml; entendemos el maquillaje como un acompañamiento, no como
-              una máscara. Trabajamos la piel y la técnica para que te veas tú, en
-              tu mejor versión, segura y tranquila.
-            </p>
+      <section class="section section--organic-home">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <h2 class="section-title">LOH&Euml;, un espacio donde sentirte en confianza</h2>
           </div>
-          <figure class="media">
-            <picture>
-              <source
-                srcset="assets/img/IMG_5010.jpeg 900w, assets/img/IMG_5010.jpeg 1600w"
-                sizes="(max-width: 900px) 100vw, 50vw"
-                type="image/jpeg"
-              />
-              <img
-                src="assets/img/IMG_5010.jpeg"
-                alt="Maquillaje terminado con piel luminosa"
-                width="1600"
-                height="1067"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section section-stone" id="diferencia">
-        <div class="container split reverse" data-reveal>
-          <div class="text-block">
-            <p class="eyebrow">Nuestra gran diferencia</p>
-            <h2>Hasta que sales por la puerta</h2>
+          <article class="content-box" data-reveal>
             <p>
-              No hacemos servicios en cadena. Hacemos una boda al día. Nuestro
-              trabajo no termina cuando acabamos el maquillaje. Nos quedamos
-              contigo para el vestido, el velo, los retoques finales y esos
-              momentos de nervios previos a salir. Exclusividad real. Sin prisas.
+              En LOH&Euml; trabajamos la est&eacute;tica desde una visi&oacute;n integral. Nos importa la t&eacute;cnica,
+              pero tambi&eacute;n c&oacute;mo te sientes durante el proceso y cuando te miras al espejo despu&eacute;s.
             </p>
-          </div>
-          <figure class="media">
-            <picture>
-              <source
-                srcset="assets/img/p+i_alejandrobergado-125%20copia.JPG 1400w, assets/img/p+i_alejandrobergado-125%20copia.JPG 2400w"
-                sizes="(max-width: 900px) 100vw, 50vw"
-                type="image/jpeg"
-              />
-              <img
-                src="assets/img/p+i_alejandrobergado-125%20copia.JPG"
-                alt="Maquilladora dando los últimos retoques"
-                width="2400"
-                height="1596"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-          </figure>
+            <p>
+              Creemos en los resultados naturales, en los detalles bien hechos y en escuchar antes de empezar. Cada
+              tratamiento se adapta a ti, a tu piel y a tu momento, buscando siempre equilibrio y coherencia.
+            </p>
+            <p>
+              Hemos creado un estudio profesional y acogedor a la vez, donde la calma, el criterio y el cuidado formen
+              parte de cada servicio.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="lohe/">Quiero conoceros</a>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="section" id="servicios">
-        <div class="container" data-reveal>
-          <div class="section-header">
-            <h2>Propuesta Loh&euml;</h2>
-            <p class="subtle">Servicios pensados para piel real, ritmo real y cero prisas.</p>
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <h2 class="section-title">Nuestros servicios</h2>
           </div>
-          <div class="services">
-            <button class="service-item" type="button" data-modal-trigger="pricing-estudio" aria-haspopup="dialog">
-              Maquillaje de novias e invitadas en estudio
-            </button>
-            <button class="service-item" type="button" data-modal-trigger="pricing-tratamientos" aria-haspopup="dialog">
-              Tratamientos de piel y mirada
-            </button>
-            <button class="service-item" type="button" data-modal-trigger="pricing-domicilio" aria-haspopup="dialog">
-              Maquillaje de novia e invitadas a domicilio
-            </button>
-            <button class="service-item" type="button" data-modal-trigger="pricing-pack" aria-haspopup="dialog">
-              Pack personalizados con <strong>DESCUENTO SOLO HOY</strong>
-            </button>
-          </div>
-          <div class="services-bottom">
-            <div class="hero-actions">
-              <a class="button" href="#waitlist" data-modal-trigger="calendar">Últimas fechas 2026</a>
-              <span class="hero-note">Agenda 2027 abierta <strong>SOLO HOY</strong></span>
-            </div>
-          </div>
-          <figure class="media media-wide">
-            <img src="assets/img/filosofia-1600.jpg" alt="Detalle de texturas y materiales del estudio" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="section" id="equipo">
-        <div class="container split" data-reveal>
-          <figure class="media">
-            <img src="assets/img/AlbayNora.png" alt="Alba y Nohora, equipo Lohë" loading="lazy" />
-          </figure>
-          <div class="text-block">
-            <p class="eyebrow">Equipo</p>
-            <h2>Nohora  &amp; Alba</h2>
-            <p>
-              Dos trayectorias unidas por un mismo criterio estético. Más de 7 años de experiencia fusionando el maquillaje técnico con el cuidado
-              de la piel. En Loh&euml;, tú eres la prioridad absoluta.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-highlight" id="waitlist">
-        <div class="container" data-reveal>
-          <div class="waitlist">
-            <div class="waitlist-copy">
-              <h2>Únete al lanzamiento de Loh&euml;</h2>
+          <div class="card-grid">
+            <a class="card card--link" href="maquilladora/" data-reveal>
+              <h3>Maquillaje profesional</h3>
+              <p>Maquillaje para bodas, eventos y moda, trabajado desde la t&eacute;cnica y el respeto por tu estilo.</p>
+              <span class="card-link-copy">Descubrir maquillaje</span>
+            </a>
+            <a class="card card--link" href="micropigmentacion/" data-reveal>
+              <h3>Micropigmentaci&oacute;n</h3>
+              <p>Cejas, ojos, labios y tratamientos param&eacute;dicos realizados con precisi&oacute;n y un enfoque natural.</p>
+              <span class="card-link-copy">Ver micropigmentaci&oacute;n</span>
+            </a>
+            <a class="card card--link" href="servicios-esteticos/" data-reveal>
+              <h3>Servicios est&eacute;ticos</h3>
               <p>
-                Estamos terminando de crear nuestro nuevo espacio en Getxo.
-                Apúntate a la lista prioritaria para enterarte antes que nadie de
-                la fecha de apertura.
+                Dise&ntilde;o de cejas, laminado, lifting de pesta&ntilde;as y tratamientos de labios pensados para
+                realzar sin transformar.
               </p>
-              <p class="gift">
-                Solo por apuntarte: entrarás en el sorteo de una experiencia
-                exclusiva de bienvenida y tendrás ventajas especiales en tu
-                reserva.
+              <span class="card-link-copy">Explorar est&eacute;tica</span>
+            </a>
+            <a class="card card--link" href="tatuaje/" data-reveal>
+              <h3>Tatuajes</h3>
+              <p>Tatuaje de l&iacute;nea fina y eliminaci&oacute;n, con un trabajo cuidado y personalizado.</p>
+              <span class="card-link-copy">Ver tatuajes</span>
+            </a>
+            <a class="card card--link" href="cursos/" data-reveal>
+              <h3>Formaci&oacute;n</h3>
+              <p>Cursos y talleres de maquillaje, en un espacio pensado para aprender y crecer.</p>
+              <span class="card-link-copy">Descubrir formaci&oacute;n</span>
+            </a>
+            <a class="card card--link" href="contacto/" data-reveal>
+              <h3>Reserva cita</h3>
+              <p>
+                Si ya sabes lo que quieres o necesitas que te orientemos, puedes reservar tu cita y lo vemos contigo con
+                calma.
               </p>
+              <span class="card-link-copy">Reservar ahora</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <h2 class="section-title">&iquest;Por qu&eacute; elegir LOH&Euml;?</h2>
+          </div>
+          <article class="content-box" data-reveal>
+            <p>
+              Porque no entendemos la est&eacute;tica como algo superficial. Cada servicio parte de la escucha, del
+              an&aacute;lisis y de una t&eacute;cnica bien trabajada, adaptada a tu piel y a tu momento.
+            </p>
+            <p>En LOH&Euml; trabajamos con:</p>
+            <ul class="reasons-list">
+              <li><strong>Formaci&oacute;n y experiencia real</strong>, en maquillaje, micropigmentaci&oacute;n y est&eacute;tica avanzada.</li>
+              <li><strong>Resultados naturales y equilibrados</strong>, sin transformaciones artificiales.</li>
+              <li><strong>Protocolos cuidados y materiales homologados</strong>, priorizando siempre la seguridad.</li>
+              <li><strong>Dise&ntilde;o personalizado</strong>, porque cada rostro es diferente.</li>
+              <li><strong>Un trato cercano y honesto</strong>, donde puedes preguntar, compartir dudas y sentirte en confianza.</li>
+            </ul>
+            <p>Queremos que vengas por el resultado, pero que vuelvas por c&oacute;mo te has sentido.</p>
+          </article>
+          <div class="home-cta-row" data-reveal>
+            <a class="button button--primary" href="contacto/">Reservar cita</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-strip" data-reveal>
+            <div>
+              <h2>&iquest;Empezamos?</h2>
+              <p>
+                Tanto si quieres reservar un tratamiento como si necesitas orientaci&oacute;n para saber qu&eacute;
+                encaja mejor contigo, estaremos encantadas de escucharte.
+              </p>
+              <p>Descubre tu servicio o escr&iacute;benos y lo vemos juntas.</p>
             </div>
-            <form
-              class="waitlist-form"
-              action="https://formsubmit.co/loheestudio6@gmail.com"
-              method="POST"
-            >
-              <input type="hidden" name="_next" value="https://jonsagarminagaercoreca.github.io/BodasLohe/" />
-              <label>
-                Nombre
-                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" autocomplete="email" placeholder="tucorreo@email.com" required />
-              </label>
-              <label>
-                Fecha de boda (opcional)
-                <input type="text" name="fecha" placeholder="Mes / año" />
-              </label>
-              <button class="button" type="submit">Avisadme cuando abráis</button>
-            </form>
+            <div class="hero-actions home-actions-compact">
+              <a class="button button--primary" href="contacto/">Reservar cita</a>
+              <a class="button button--secondary" href="contacto/">Contactar</a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <p class="footer-title">LOH&Euml; ESTUDIO</p>
-          <a class="footer-link" href="tel:+34635943587">+34 635 94 35 87</a>
-        </div>
-      </div>
-    </footer>
-
-    <div class="modal" id="calendar-modal" aria-hidden="true" data-modal="calendar">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="calendar-title" tabindex="-1">
-        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
-          &times;
-        </button>
-        <p class="modal-title" id="calendar-title">Calendario 2026</p>
-        <img
-          src="assets/img/Black Simple Year 2026 Annual Calendar.png"
-          alt="Calendario anual 2026"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </div>
-
-    <div class="modal" id="pricing-estudio-modal" aria-hidden="true" data-modal="pricing-estudio">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-estudio-title" tabindex="-1">
-        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
-          &times;
-        </button>
-        <p class="modal-title" id="pricing-estudio-title">Precios: estudio</p>
-        <ul class="price-list">
-          <li>
-            <span class="price-name">Maquillaje novia en estudio</span>
-            <span class="price-values">
-              <span class="price-final">250 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Maquillaje invitada en estudio</span>
-            <span class="price-values">
-              <span class="price-final">100 €</span>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="modal" id="pricing-tratamientos-modal" aria-hidden="true" data-modal="pricing-tratamientos">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-tratamientos-title" tabindex="-1">
-        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
-          &times;
-        </button>
-        <p class="modal-title" id="pricing-tratamientos-title">Precios: tratamientos</p>
-        <ul class="price-list">
-          <li>
-            <span class="price-name">Lifting de pestañas</span>
-            <span class="price-values">
-              <span class="price-final">55 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Extension de pestañas naturales</span>
-            <span class="price-values">
-              <span class="price-final">70 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Diseño completo de cejas (depilación, laminado y tinte)</span>
-            <span class="price-values">
-              <span class="price-final">70 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Laminado (depilación + laminado)</span>
-            <span class="price-values">
-              <span class="price-final">60 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Tinte de cejas (depilación + tinte)</span>
-            <span class="price-values">
-              <span class="price-final">55 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Hidratación labial con ácido sin color (incluye 1 retoque)</span>
-            <span class="price-values">
-              <span class="price-final">210 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Hidratación labial con ácido y color (incluye 1 retoque)</span>
-            <span class="price-values">
-              <span class="price-final">225 €</span>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="modal" id="pricing-domicilio-modal" aria-hidden="true" data-modal="pricing-domicilio">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-domicilio-title" tabindex="-1">
-        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
-          &times;
-        </button>
-        <p class="modal-title" id="pricing-domicilio-title">Precios: domicilio</p>
-        <ul class="price-list">
-          <li>
-            <span class="price-name">Maquillaje novia + 2 invitadas a domicilio</span>
-            <span class="price-values">
-              <span class="price-final">540 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Maquillaje 4 invitadas a domicilio</span>
-            <span class="price-values">
-              <span class="price-final">400 €</span>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="modal" id="pricing-pack-modal" aria-hidden="true" data-modal="pricing-pack">
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-pack-title" tabindex="-1">
-        <button class="modal-close" type="button" aria-label="Cerrar" data-modal-close data-modal-focus>
-          &times;
-        </button>
-        <p class="modal-title" id="pricing-pack-title">Precios: packs</p>
-        <ul class="price-list">
-          <li>
-            <span class="price-name">Boda a domicilio + lifting</span>
-            <span class="price-values">
-              <span class="price-old">595 €</span>
-              <span class="price-new">540 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Boda a domicilio + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">660 €</span>
-              <span class="price-new">600 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Boda a domicilio + lifting + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">715 €</span>
-              <span class="price-new">620 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Novia en estudio + lifting</span>
-            <span class="price-values">
-              <span class="price-old">385 €</span>
-              <span class="price-new">350 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Novia en estudio + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">450 €</span>
-              <span class="price-new">400 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Novia en estudio + lifting + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">505 €</span>
-              <span class="price-new">450 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Invitadas en estudio + lifting</span>
-            <span class="price-values">
-              <span class="price-old">155 €</span>
-              <span class="price-new">140 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Invitadas en estudio + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">220 €</span>
-              <span class="price-new">200 €</span>
-            </span>
-          </li>
-          <li>
-            <span class="price-name">Invitadas en estudio + lifting + hydralips</span>
-            <span class="price-values">
-              <span class="price-old">275 €</span>
-              <span class="price-new">245 €</span>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <footer class="site-footer" data-site-footer></footer>
     <script src="main.js"></script>
   </body>
 </html>
+
+
+

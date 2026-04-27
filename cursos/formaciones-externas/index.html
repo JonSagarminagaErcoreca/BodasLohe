@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Cursos y formacion</title>
+    <meta
+      name="description"
+      content="Cursos y formacion LOHE para profesionales de maquillaje y micropigmentacion con metodologia practica, tecnica y enfoque cuidado-first."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="cursos-formacion">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--academy">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Cursos y formacion</span>
+            <h1 class="hero-title">Programa LOHE para profesionales</h1>
+            <p class="hero-copy">
+              Formaciones orientadas a tecnica aplicable, criterio estetico y experiencia cliente premium. Para perfiles
+              que quieren elevar su estandar real de trabajo.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="contacto/">Solicitar dossier</a>
+              <a class="button button--light" href="lohe/">Ver filosofia</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <span class="section-kicker">Bloques formativos</span>
+            <h2 class="section-title">Tres lineas para crecer con coherencia</h2>
+          </div>
+          <div class="card-grid">
+            <article class="card" data-reveal>
+              <h3>Makeup premium studio</h3>
+              <p>Perfeccion de piel, armonia de rasgos y flujo de trabajo para servicios de alto valor.</p>
+              <ul class="service-links">
+                <li>Diagnostico estetico de cliente</li>
+                <li>Tecnica de capas y fijacion</li>
+                <li>Direccion visual de look final</li>
+              </ul>
+            </article>
+            <article class="card" data-reveal>
+              <h3>Micropigmentacion avanzada</h3>
+              <p>Protocolos de seguridad, eleccion de pigmento y precision en diseno para resultados estables.</p>
+              <ul class="service-links">
+                <li>Visagismo aplicado</li>
+                <li>Colorimetria funcional</li>
+                <li>Seguimiento y correcciones</li>
+              </ul>
+            </article>
+            <article class="card" data-reveal>
+              <h3>Experiencia y negocio</h3>
+              <p>Modelo de atencion, pricing y comunicacion con enfoque de valor y transparencia.</p>
+              <ul class="service-links">
+                <li>Posicionamiento premium</li>
+                <li>Itinerario cliente 360</li>
+                <li>Curaduria y recomendacion honesta</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--oat">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <span class="section-kicker">Metodologia</span>
+            <h2 class="section-title">Aprendizaje practico y transferible</h2>
+          </div>
+          <ol class="timeline">
+            <li data-reveal>
+              <div>
+                <h3>Marco conceptual</h3>
+                <p>Entender el por que de cada decision tecnica para evitar ejecucion mecanica.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Demostracion guiada</h3>
+                <p>Ver proceso completo con explicacion de tiempos, productos y control de detalle.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Practica supervisada</h3>
+                <p>Aplicar metodo en casos reales con feedback individual.</p>
+              </div>
+            </li>
+            <li data-reveal>
+              <div>
+                <h3>Plan de implementacion</h3>
+                <p>Checklist para integrar lo aprendido en tu flujo de trabajo inmediato.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-strip" data-reveal>
+            <div>
+              <h2>Quieres formarte con metodologia LOHE?</h2>
+              <p>Escribenos tu perfil y objetivos para recibir el itinerario mas adecuado.</p>
+            </div>
+            <a class="button" href="contacto/">Pedir informacion</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+

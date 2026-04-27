@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+    <title>LOHE Estudio | Tratamientos est&eacute;ticos de pesta&ntilde;as</title>
+    <meta
+      name="description"
+      content="Tratamientos est&eacute;ticos de pesta&ntilde;as en LOHE: lifting y pesta&ntilde;as hiperrealistas con enfoque natural, personalizado y seguro."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="servicios-esteticos-pestanas">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--micro">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Servicios est&eacute;ticos</span>
+            <h1 class="hero-title">Tratamientos est&eacute;ticos de pesta&ntilde;as</h1>
+            <p class="hero-copy">
+              La mirada cambia much&iacute;simo con peque&ntilde;os detalles. Los tratamientos de pesta&ntilde;as est&aacute;n
+              pensados para realzar lo que ya tienes, aportando definici&oacute;n y presencia sin perder naturalidad.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container longform-stack">
+          <article class="content-box" data-reveal>
+            <p>
+              Cada persona busca algo distinto: hay quien quiere un efecto m&aacute;s abierto y ligero, y quien prefiere
+              mayor intensidad sin que se note artificial. Por eso trabajamos las pesta&ntilde;as desde un enfoque
+              personalizado, adaptando la t&eacute;cnica a tu ojo, a tu estilo y a tu rutina diaria.
+            </p>
+            <p>El objetivo siempre es el mismo: que te veas mejor, sin dejar de parecer t&uacute;.</p>
+
+            <div class="hero-actions">
+              <a class="button button--primary" href="contacto/">Reserva tu cita</a>
+              <a class="button button--secondary" href="contacto/">Contactar</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container container--hero-width">
+          <div class="micro-accordion micro-accordion--cards moda-tiles" data-micro-accordion>
+            <article id="lifting-pestanas" class="micro-topic micro-topic--tone-taupe" data-reveal data-micro-item>
+              <h2 class="micro-topic-heading">
+                <button
+                  class="micro-topic-trigger"
+                  type="button"
+                  data-micro-trigger
+                  id="micro-trigger-lifting-pestanas"
+                  aria-expanded="false"
+                  aria-controls="micro-panel-lifting-pestanas"
+                >
+                  Lifting de pesta&ntilde;as
+                </button>
+              </h2>
+              <div
+                class="micro-topic-panel"
+                id="micro-panel-lifting-pestanas"
+                data-micro-panel
+                role="region"
+                aria-labelledby="micro-trigger-lifting-pestanas"
+              >
+                <div class="micro-topic-panel-inner">
+                  <div class="micro-topic-content">
+                    <p>
+                      El lifting de pesta&ntilde;as es perfecto si te gusta verte con la mirada m&aacute;s abierta, pero sin
+                      tener que maquillarte todos los d&iacute;as. Trabaja tus propias pesta&ntilde;as, elev&aacute;ndolas
+                      desde la ra&iacute;z para que se vean m&aacute;s largas y definidas, sin a&ntilde;adir nada artificial.
+                    </p>
+                    <p>
+                      El efecto es muy natural, simplemente parece que tus pesta&ntilde;as est&aacute;n mejor peinadas y
+                      m&aacute;s despiertas. Muchas personas lo eligen porque les facilita la rutina y les permite verse bien
+                      desde primera hora, sin depender del rizador o la m&aacute;scara.
+                    </p>
+                    <p>Es una forma sencilla de realzar la mirada respetando lo que ya tienes.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article id="pestanas-hiperrealistas" class="micro-topic micro-topic--tone-taupe" data-reveal data-micro-item>
+              <h2 class="micro-topic-heading">
+                <button
+                  class="micro-topic-trigger"
+                  type="button"
+                  data-micro-trigger
+                  id="micro-trigger-pestanas-hiperrealistas"
+                  aria-expanded="false"
+                  aria-controls="micro-panel-pestanas-hiperrealistas"
+                >
+                  Pesta&ntilde;as hiperrealistas
+                </button>
+              </h2>
+              <div
+                class="micro-topic-panel"
+                id="micro-panel-pestanas-hiperrealistas"
+                data-micro-panel
+                role="region"
+                aria-labelledby="micro-trigger-pestanas-hiperrealistas"
+              >
+                <div class="micro-topic-panel-inner">
+                  <div class="micro-topic-content">
+                    <p>
+                      Las pesta&ntilde;as hiperrealistas son una evoluci&oacute;n de las extensiones tradicionales.
+                      Est&aacute;n pensadas para conseguir una mirada m&aacute;s definida y bonita, pero sin que se note que
+                      llevas extensiones.
+                    </p>
+                    <p>
+                      La clave est&aacute; en el detalle. Trabajamos con fibras muy finas y ligeras, aplicadas de forma
+                      precisa para que se integren con tu pesta&ntilde;a natural. No buscamos un efecto "bloque" ni
+                      artificial, sino una mirada que parezca tuya, simplemente mejor.
+                    </p>
+                    <p>
+                      Cada dise&ntilde;o se adapta a la forma de tu ojo y a tus facciones. Mezclamos longitudes, grosores e
+                      incluso tonos para que el resultado tenga profundidad y movimiento, igual que unas pesta&ntilde;as
+                      naturales. No trabajamos con plantillas est&aacute;ndar, sino con un dise&ntilde;o pensado para ti.
+                    </p>
+                    <p>
+                      Adem&aacute;s, cuidamos mucho el peso y la colocaci&oacute;n para proteger la pesta&ntilde;a natural, de
+                      forma que puedas llevarlas sin comprometer su salud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="content-box faq-box" data-reveal>
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-list">
+              <article class="faq-item">
+                <h3>&iquest;Qu&eacute; diferencia hay entre el lifting y las pesta&ntilde;as hiperrealistas?</h3>
+                <p>
+                  El lifting trabaja tus propias pesta&ntilde;as, elev&aacute;ndolas desde la ra&iacute;z para que se vean
+                  m&aacute;s largas y abiertas, mientras que las pesta&ntilde;as hiperrealistas son extensiones muy finas que
+                  se integran con tu pesta&ntilde;a natural para dar m&aacute;s densidad y definici&oacute;n sin efecto
+                  artificial.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Cu&aacute;l de los dos tratamientos es mejor para m&iacute;?</h3>
+                <p>
+                  Depende de lo que busques. Si quieres potenciar lo que ya tienes de forma muy natural, el lifting suele ser
+                  buena opci&oacute;n. Si prefieres m&aacute;s intensidad o mayor sensaci&oacute;n de volumen, las pesta&ntilde;as
+                  hiperrealistas pueden encajar mejor. En caso de tener dudas, te aconsejamos con lo que creemos que mejor se
+                  adapta a ti y tus necesidades.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Da&ntilde;an las pesta&ntilde;as naturales?</h3>
+                <p>
+                  No, siempre que el tratamiento est&eacute; bien realizado y se respeten los cuidados. En el caso de las
+                  hiperrealistas, el peso se adapta a tu pesta&ntilde;a natural para protegerla.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Cu&aacute;nto duran los resultados?</h3>
+                <p>
+                  El lifting suele mantenerse varias semanas, hasta que la pesta&ntilde;a completa su ciclo natural. Las
+                  pesta&ntilde;as hiperrealistas requieren mantenimiento peri&oacute;dico para conservar el efecto.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Puedo maquillarme despu&eacute;s?</h3>
+                <p>
+                  S&iacute;. Con el lifting muchas personas incluso dejan de usar m&aacute;scara. Con las hiperrealistas se
+                  puede maquillar, aunque muchas veces no hace falta.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Necesitan cuidados especiales?</h3>
+                <p>
+                  S&iacute;, sobre todo las primeras horas. Te explicamos qu&eacute; evitar y c&oacute;mo mantenerlas para que
+                  el resultado dure lo m&aacute;ximo posible.
+                </p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Belly Painting</title>
+    <meta
+      name="description"
+      content="Belly Painting en LOHE: sesi&oacute;n personalizada durante el embarazo, con dise&ntilde;o cuidado, productos adecuados y enfoque tranquilo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="belly-painting">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--makeup">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Maquillaje</span>
+            <h1 class="hero-title">Belly Painting</h1>
+            <p class="hero-copy">
+              El belly painting est&aacute; pensado para disfrutar de un momento tranquilo y cuidado durante el embarazo.
+              Cada sesi&oacute;n se hace con tiempo, adaptando el dise&ntilde;o a tus gustos y a c&oacute;mo te apetece vivir
+              ese momento, siempre desde el respeto y el bienestar.
+            </p>
+            <p class="hero-copy">
+              Cuidamos el ambiente, el ritmo y los productos que utilizamos para que la experiencia sea c&oacute;moda y
+              agradable, acompa&ntilde;&aacute;ndote en una etapa muy especial.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="contacto/">Reserva tu cita</a>
+              <a class="button button--secondary" href="contacto/">Contactar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container container--hero-width">
+          <div class="belly-tiles">
+            <article class="content-box belly-tile" data-reveal>
+              <h2>&iquest;C&oacute;mo es la sesi&oacute;n de belly painting?</h2>
+              <p>
+                La sesi&oacute;n se realiza con calma, en un ambiente tranquilo, para que la experiencia sea agradable.
+                Durante la sesi&oacute;n:
+              </p>
+              <ul class="reasons-list">
+                <li>Hablamos contigo para definir el dise&ntilde;o, los colores y el estilo.</li>
+                <li>Preparamos la piel antes de empezar a maquillar.</li>
+                <li>Realizamos el dise&ntilde;o poco a poco, respetando tu ritmo y haciendo pausas si lo necesitas.</li>
+                <li>Cuidamos los detalles para que el resultado quede equilibrado.</li>
+              </ul>
+              <p>
+                La duraci&oacute;n depende del dise&ntilde;o, pero siempre reservamos el tiempo necesario para disfrutar del
+                proceso.
+              </p>
+            </article>
+
+            <article class="content-box belly-tile" data-reveal>
+              <h2>Tem&aacute;ticas y estilos de belly painting</h2>
+              <p>
+                Cada sesi&oacute;n se dise&ntilde;a de forma personalizada, adaptando el dibujo a tus gustos y a lo que te
+                apetece expresar en ese momento. Algunas de las tem&aacute;ticas m&aacute;s habituales son:
+              </p>
+              <ul class="reasons-list">
+                <li>
+                  <strong>Motivos naturales</strong>, como flores, hojas o elementos org&aacute;nicos, con un acabado suave y
+                  delicado.
+                </li>
+                <li>
+                  <strong>Dise&ntilde;os simb&oacute;licos</strong>, que representan el v&iacute;nculo con el beb&eacute; o esta
+                  etapa, a trav&eacute;s de formas y detalles con significado personal.
+                </li>
+                <li>
+                  <strong>Ilustraciones m&aacute;s creativas</strong>, con un enfoque art&iacute;stico y m&aacute;s presencia
+                  visual, si buscas algo diferente.
+                </li>
+                <li>
+                  <strong>Estilos sencillos y minimalistas</strong>, donde el dibujo es m&aacute;s sutil y limpio.
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-actions belly-tiles-actions" data-reveal>
+            <a class="button button--primary" href="contacto/">Reserva tu cita</a>
+            <a class="button button--secondary" href="contacto/">Contactar</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container container--hero-width">
+          <article class="content-box faq-box" data-reveal>
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-list">
+              <article class="faq-item">
+                <h3>&iquest;En qu&eacute; momento del embarazo se puede hacer una sesi&oacute;n de belly painting?</h3>
+                <p>
+                  Suele hacerse cuando la barriga ya est&aacute; bien definida y te encuentras c&oacute;moda, normalmente en
+                  el s&eacute;ptimo u octavo mes. Aun as&iacute;, lo valoramos contigo en cada caso.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Es seguro para la piel durante el embarazo?</h3>
+                <p>
+                  S&iacute;. Utilizamos productos adecuados y cuidamos la preparaci&oacute;n de la piel para que la sesi&oacute;n
+                  sea c&oacute;moda y segura.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Cu&aacute;nto dura una sesi&oacute;n de belly painting?</h3>
+                <p>
+                  Depende del dise&ntilde;o que elijas, pero siempre reservamos el tiempo necesario para hacerlo con calma,
+                  respetar tu ritmo y que quede bien.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Puedo elegir el dise&ntilde;o o traer una idea?</h3>
+                <p>
+                  S&iacute;. Puedes venir con una idea o alguna referencia, o dejarte asesorar para crear un dise&ntilde;o que
+                  encaje contigo.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;La sesi&oacute;n se realiza en el estudio o a domicilio?</h3>
+                <p>
+                  La sesi&oacute;n se realiza en el estudio. Si necesitas valorar la opci&oacute;n a domicilio, cons&uacute;ltanos
+                  y lo vemos seg&uacute;n disponibilidad.
+                </p>
+              </article>
+              <article class="faq-item">
+                <h3>&iquest;Puedo venir acompa&ntilde;ada?</h3>
+                <p>
+                  Si te apetece venir acompa&ntilde;ada, no hay problema, siempre que el ambiente se mantenga tranquilo y
+                  relajado.
+                </p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+

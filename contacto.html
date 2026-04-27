@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        var host = window.location.hostname;
+        var parts = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (host.endsWith("github.io") && parts.length > 0) {
+          basePath = "/" + parts[0] + "/";
+        } else if (parts.length > 0 && parts[0].toLowerCase() === "bodaslohe") {
+          basePath = "/" + parts[0] + "/";
+        }
+
+        document.write('<base href="' + basePath + '">');
+      })();
+    </script>
+<title>LOHE Estudio | Contacto</title>
+    <meta
+      name="description"
+      content="Contacto LOHE Estudio: solicita valoraci&oacute;n para maquillaje, micropigmentaci&oacute;n o formaci&oacute;n en Getxo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/LoheAssets/LE_Isotipo_Charcoal.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="contacto">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="site-header" data-site-header></header>
+
+    <main>
+      <section class="hero hero--contact">
+        <div class="hero-inner">
+          <div data-reveal>
+            <span class="eyebrow">Contacto</span>
+            <h1 class="hero-title">Agenda tu consulta en LOHE</h1>
+            <p class="hero-copy">
+              Cu&eacute;ntanos qu&eacute; necesitas y te orientamos sobre el servicio m&aacute;s adecuado, tiempos estimados y preparaci&oacute;n
+              previa.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="tel:+34635943587">Llamar ahora</a>
+              <a class="button button--light" href="mailto:info@loheestudio.com">Enviar email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <aside class="contact-panel" data-reveal>
+            <div class="contact-label">
+              <strong>Tel&eacute;fono</strong>
+              <a href="tel:+34635943587">+34 635 94 35 87</a>
+            </div>
+            <div class="contact-label">
+              <strong>Email</strong>
+              <a href="mailto:info@loheestudio.com">info@loheestudio.com</a>
+            </div>
+            <div class="contact-label">
+              <strong>Ubicaci&oacute;n</strong>
+              <span>Getxo, Bizkaia</span>
+            </div>
+            <div class="contact-label">
+              <strong>Horario orientativo</strong>
+              <span>Lunes a viernes: 10:00 - 19:00</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Consulta previa</span>
+              <span class="tag">Atenci&oacute;n personalizada</span>
+            </div>
+          </aside>
+
+          <article class="contact-panel" data-reveal>
+            <h2 style="font-family: var(--serif)">Cuestionario de contacto</h2>
+            <p style="color: rgba(35, 35, 35, 0.75); margin-bottom: 1rem">
+              D&eacute;janos tus datos y te responderemos con una propuesta inicial seg&uacute;n tu objetivo.
+            </p>
+            <form class="form-grid" action="#" method="post">
+              <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+              </div>
+              <div class="form-field">
+                <label for="servicio">Servicio de inter&eacute;s</label>
+                <input id="servicio" name="servicio" type="text" placeholder="Ej. Maquillaje para novias" />
+              </div>
+              <div class="form-field">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Cu&eacute;ntanos fecha, objetivo o dudas"></textarea>
+              </div>
+              <button class="button" type="submit">Enviar solicitud</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="cta-strip" data-reveal>
+            <div>
+              <h2>&iquest;Prefieres resolverlo por WhatsApp?</h2>
+              <p>Tambi&eacute;n puedes escribirnos directamente y te orientamos de forma r&aacute;pida.</p>
+            </div>
+            <a class="button" href="https://wa.me/34635943587">Ir a WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+
